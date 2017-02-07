@@ -3,7 +3,6 @@
  * them.
  *
  * @class EventTarget
- * @submodule events
  * @constructor
  */
 
