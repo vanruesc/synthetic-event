@@ -38,7 +38,6 @@
 	 * A basic event.
 	 *
 	 * @class Event
-	 * @submodule events
 	 * @constructor
 	 * @param {String} type - The name of the event.
 	 */
@@ -72,7 +71,6 @@
 	 * them.
 	 *
 	 * @class EventTarget
-	 * @submodule events
 	 * @constructor
 	 */
 
