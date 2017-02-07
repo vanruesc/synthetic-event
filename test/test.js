@@ -30,7 +30,7 @@ module.exports = {
 
 			eventTarget.addEventListener("test", function(event) {
 
-					test.equal(event.target, eventTarget);
+				test.equal(event.target, eventTarget);
 
 			});
 
@@ -38,14 +38,35 @@ module.exports = {
 
 				handleEvent(event) {
 
-						test.equal(event.target, eventTarget);
+					test.equal(event.target, eventTarget);
 
-					}
+				}
 
 			});
 
 			test.expect(2);
 			eventTarget.dispatchEvent(new lib.Event("test"));
+			test.done();
+
+		},
+
+		"can dispatch on another target": function(test) {
+
+			const eventTarget1 = new lib.EventTarget();
+			const eventTarget2 = new lib.EventTarget();
+
+			eventTarget2.addEventListener("test", {
+
+				handleEvent(event) {
+
+					test.equal(event.target, eventTarget2);
+
+				}
+
+			});
+
+			test.expect(1);
+			eventTarget1.dispatchEvent(new lib.Event("test"), eventTarget2);
 			test.done();
 
 		}
