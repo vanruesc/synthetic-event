@@ -53,7 +53,7 @@
 		"grunt-cli": "1.x.x",
 		"grunt-contrib-nodeunit": "1.x.x",
 		"grunt-eslint": "20.x.x",
-		"grunt-rollup": "1.x.x",
+		"grunt-rollup": "2.x.x",
 		"jit-grunt": "0.x.x",
 		"load-grunt-config": "0.x.x",
 		"rollup-plugin-babel": "2.x.x",
