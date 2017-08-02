@@ -8,11 +8,11 @@ This library provides a concise implementation of the two interfaces [Event](htt
 and [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget). The included base classes allow you to easily create
 synthetic events and custom event targets in any environment.
 
-<small>In case your focus lies on DOM events, you may want to take a look at the native
-[CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) class but
-bear in mind that its `target` property is read-only. An alternative way to create
-custom event targets is to use a [DocumentFragment](https://developer.mozilla.org/en/docs/Web/API/Document/createDocumentFragment)
-as a dummy. This solution, however, only works in a browser environment.</small>
+In case your focus lies on DOM events, you may want to take a look at the native [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)
+class but bear in mind that its `target` property is read-only. 
+
+An alternative way to create custom event targets is to use a [DocumentFragment](https://developer.mozilla.org/en/docs/Web/API/Document/createDocumentFragment)
+as a dummy. This solution, however, only works in a browser environment.
 
 
 ## Installation
