@@ -1,255 +1,245 @@
 /**
- * synthetic-event v0.0.0 build Feb 07 2017
+ * synthetic-event v0.0.1 build Aug 02 2017
  * https://github.com/vanruesc/synthetic-event
  * Copyright 2017 Raoul van Rüschen, Zlib
  */
 
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.SYNTHETICEVENT = global.SYNTHETICEVENT || {})));
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global.SYNTHETICEVENT = {})));
 }(this, (function (exports) { 'use strict';
 
-	var classCallCheck = function (instance, Constructor) {
-	  if (!(instance instanceof Constructor)) {
-	    throw new TypeError("Cannot call a class as a function");
-	  }
-	};
+  var classCallCheck = function (instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
 
-	var createClass = function () {
-	  function defineProperties(target, props) {
-	    for (var i = 0; i < props.length; i++) {
-	      var descriptor = props[i];
-	      descriptor.enumerable = descriptor.enumerable || false;
-	      descriptor.configurable = true;
-	      if ("value" in descriptor) descriptor.writable = true;
-	      Object.defineProperty(target, descriptor.key, descriptor);
-	    }
-	  }
+  var createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
 
-	  return function (Constructor, protoProps, staticProps) {
-	    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-	    if (staticProps) defineProperties(Constructor, staticProps);
-	    return Constructor;
-	  };
-	}();
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
 
-	/**
-	 * A basic event.
-	 *
-	 * @class Event
-	 * @constructor
-	 * @param {String} type - The name of the event.
-	 */
+  /**
+   * A basic event.
+   *
+   * @param {String} type - The name of the event.
+   */
 
-	var Event = function Event(type) {
-		classCallCheck(this, Event);
+  var Event = function Event(type) {
+  		classCallCheck(this, Event);
 
 
-		/**
-	  * The name of the event.
-	  *
-	  * @property type
-	  * @type String
-	  */
+  		/**
+     * The name of the event.
+     *
+     * @type {String}
+     */
 
-		this.type = type;
+  		this.type = type;
 
-		/**
-	  * A reference to the target to which the event was originally dispatched.
-	  *
-	  * @property target
-	  * @type Object
-	  * @default null
-	  */
+  		/**
+     * A reference to the target to which the event was originally dispatched.
+     *
+     * @type {Object}
+     * @default null
+     */
 
-		this.target = null;
-	};
+  		this.target = null;
+  };
 
-	/**
-	 * A base class for objects that can receive events and may have listeners for
-	 * them.
-	 *
-	 * @class EventTarget
-	 * @constructor
-	 */
+  /**
+   * A base class for objects that can receive events and may have listeners for
+   * them.
+   */
 
-	var EventTarget = function () {
-		function EventTarget() {
-			classCallCheck(this, EventTarget);
+  var EventTarget = function () {
 
+  		/**
+     * Constructs a new EventTarget.
+     */
 
-			/**
-	   * A map of event listener functions.
-	   *
-	   * @property m0
-	   * @type Map
-	   * @private
-	   */
-
-			this.m0 = new Map();
-
-			/**
-	   * A map of event listener objects.
-	   *
-	   * @property m1
-	   * @type Map
-	   * @private
-	   */
-
-			this.m1 = new Map();
-		}
-
-		/**
-	  * Registers an event handler of a specific event type on the event target.
-	  *
-	  * @method addEventListener
-	  * @param {String} type - The event type to listen for.
-	  * @param {Object} listener - The object that receives a notification when an event of the specified type occurs.
-	  */
-
-		createClass(EventTarget, [{
-			key: "addEventListener",
-			value: function addEventListener(type, listener) {
-
-				var map = typeof listener === "function" ? this.m0 : this.m1;
-
-				if (map.has(type)) {
-
-					map.get(type).add(listener);
-				} else {
-
-					map.set(type, new Set([listener]));
-				}
-			}
-
-			/**
-	   * Removes an event handler of a specific event type from the event target.
-	   *
-	   * @method removeEventListener
-	   * @param {String} type - The event type to remove.
-	   * @param {Object} listener - The event listener to remove from the event target.
-	   */
-
-		}, {
-			key: "removeEventListener",
-			value: function removeEventListener(type, listener) {
-
-				var map = typeof listener === "function" ? this.m0 : this.m1;
-
-				var listeners = void 0;
-
-				if (map.has(type)) {
-
-					listeners = map.get(type);
-					listeners.delete(listener);
-
-					if (listeners.size === 0) {
-
-						map.delete(type);
-					}
-				}
-			}
-
-			/**
-	   * Dispatches an event at the specified event target, invoking the affected
-	   * event listeners in the appropriate order.
-	   *
-	   * @method dispatchEvent
-	   * @private
-	   * @param {Event} event - The event to dispatch.
-	   * @param {EventTarget} [target] - An event target.
-	   */
-
-		}, {
-			key: "dispatchEvent",
-			value: function dispatchEvent(event) {
-				var target = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this;
+  		function EventTarget() {
+  				classCallCheck(this, EventTarget);
 
 
-				var m0 = target.m0;
-				var m1 = target.m1;
+  				/**
+       * A map of event listener functions.
+       *
+       * @type {Map}
+       */
 
-				var listeners = void 0;
-				var listener = void 0;
+  				this.listenerFunctions = new Map();
 
-				event.target = target;
+  				/**
+       * A map of event listener objects.
+       *
+       * @type {Map}
+       */
 
-				if (m0.has(event.type)) {
+  				this.listenerObjects = new Map();
+  		}
 
-					listeners = m0.get(event.type);
+  		/**
+     * Registers an event handler of a specific event type on the event target.
+     *
+     * @param {String} type - The event type to listen for.
+     * @param {Object} listener - The object that receives a notification when an event of the specified type occurs.
+     */
 
-					var _iteratorNormalCompletion = true;
-					var _didIteratorError = false;
-					var _iteratorError = undefined;
+  		createClass(EventTarget, [{
+  				key: "addEventListener",
+  				value: function addEventListener(type, listener) {
 
-					try {
-						for (var _iterator = listeners[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-							listener = _step.value;
+  						var m = typeof listener === "function" ? this.listenerFunctions : this.listenerObjects;
+
+  						if (m.has(type)) {
+
+  								m.get(type).add(listener);
+  						} else {
+
+  								m.set(type, new Set([listener]));
+  						}
+  				}
+
+  				/**
+       * Removes an event handler of a specific event type from the event target.
+       *
+       * @param {String} type - The event type to remove.
+       * @param {Object} listener - The event listener to remove from the event target.
+       */
+
+  		}, {
+  				key: "removeEventListener",
+  				value: function removeEventListener(type, listener) {
+
+  						var m = typeof listener === "function" ? this.listenerFunctions : this.listenerObjects;
+
+  						var listeners = void 0;
+
+  						if (m.has(type)) {
+
+  								listeners = m.get(type);
+  								listeners.delete(listener);
+
+  								if (listeners.size === 0) {
+
+  										m.delete(type);
+  								}
+  						}
+  				}
+
+  				/**
+       * Dispatches an event at the specified event target, invoking the affected
+       * event listeners in the appropriate order.
+       *
+       * @param {Event} event - The event to dispatch.
+       * @param {EventTarget} [target] - An event target.
+       */
+
+  		}, {
+  				key: "dispatchEvent",
+  				value: function dispatchEvent(event) {
+  						var target = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this;
 
 
-							listener.call(target, event);
-						}
-					} catch (err) {
-						_didIteratorError = true;
-						_iteratorError = err;
-					} finally {
-						try {
-							if (!_iteratorNormalCompletion && _iterator.return) {
-								_iterator.return();
-							}
-						} finally {
-							if (_didIteratorError) {
-								throw _iteratorError;
-							}
-						}
-					}
-				}
+  						var listenerFunctions = target.listenerFunctions;
+  						var listenerObjects = target.listenerObjects;
 
-				if (m1.has(event.type)) {
+  						var listeners = void 0;
+  						var listener = void 0;
 
-					listeners = m1.get(event.type);
+  						event.target = target;
 
-					var _iteratorNormalCompletion2 = true;
-					var _didIteratorError2 = false;
-					var _iteratorError2 = undefined;
+  						if (listenerFunctions.has(event.type)) {
 
-					try {
-						for (var _iterator2 = listeners[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-							listener = _step2.value;
+  								listeners = listenerFunctions.get(event.type);
+
+  								var _iteratorNormalCompletion = true;
+  								var _didIteratorError = false;
+  								var _iteratorError = undefined;
+
+  								try {
+  										for (var _iterator = listeners[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+  												listener = _step.value;
 
 
-							listener.handleEvent(event);
-						}
-					} catch (err) {
-						_didIteratorError2 = true;
-						_iteratorError2 = err;
-					} finally {
-						try {
-							if (!_iteratorNormalCompletion2 && _iterator2.return) {
-								_iterator2.return();
-							}
-						} finally {
-							if (_didIteratorError2) {
-								throw _iteratorError2;
-							}
-						}
-					}
-				}
-			}
-		}]);
-		return EventTarget;
-	}();
+  												listener.call(target, event);
+  										}
+  								} catch (err) {
+  										_didIteratorError = true;
+  										_iteratorError = err;
+  								} finally {
+  										try {
+  												if (!_iteratorNormalCompletion && _iterator.return) {
+  														_iterator.return();
+  												}
+  										} finally {
+  												if (_didIteratorError) {
+  														throw _iteratorError;
+  												}
+  										}
+  								}
+  						}
 
-	/**
-	 * A collection of event classes.
-	 *
-	 * @module synthetic-event
-	 */
+  						if (listenerObjects.has(event.type)) {
 
-	exports.Event = Event;
-	exports.EventTarget = EventTarget;
+  								listeners = listenerObjects.get(event.type);
 
-	Object.defineProperty(exports, '__esModule', { value: true });
+  								var _iteratorNormalCompletion2 = true;
+  								var _didIteratorError2 = false;
+  								var _iteratorError2 = undefined;
+
+  								try {
+  										for (var _iterator2 = listeners[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+  												listener = _step2.value;
+
+
+  												listener.handleEvent(event);
+  										}
+  								} catch (err) {
+  										_didIteratorError2 = true;
+  										_iteratorError2 = err;
+  								} finally {
+  										try {
+  												if (!_iteratorNormalCompletion2 && _iterator2.return) {
+  														_iterator2.return();
+  												}
+  										} finally {
+  												if (_didIteratorError2) {
+  														throw _iteratorError2;
+  												}
+  										}
+  								}
+  						}
+  				}
+  		}]);
+  		return EventTarget;
+  }();
+
+  /**
+   * A collection of event classes.
+   *
+   * @module synthetic-event
+   */
+
+  exports.Event = Event;
+  exports.EventTarget = EventTarget;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
