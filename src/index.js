@@ -4,5 +4,5 @@
  * @module synthetic-event
  */
 
-export { Event } from "./event.js";
-export { EventTarget } from "./event-target.js";
+export { Event } from "./Event.js";
+export { EventTarget } from "./EventTarget.js";

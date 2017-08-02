@@ -1,56 +1,52 @@
 /**
  * A base class for objects that can receive events and may have listeners for
  * them.
- *
- * @class EventTarget
- * @constructor
  */
 
 export class EventTarget {
+
+	/**
+	 * Constructs a new EventTarget.
+	 */
 
 	constructor() {
 
 		/**
 		 * A map of event listener functions.
 		 *
-		 * @property m0
-		 * @type Map
-		 * @private
+		 * @type {Map}
 		 */
 
-		this.m0 = new Map();
+		this.listenerFunctions = new Map();
 
 		/**
 		 * A map of event listener objects.
 		 *
-		 * @property m1
-		 * @type Map
-		 * @private
+		 * @type {Map}
 		 */
 
-		this.m1 = new Map();
+		this.listenerObjects = new Map();
 
 	}
 
 	/**
 	 * Registers an event handler of a specific event type on the event target.
 	 *
-	 * @method addEventListener
 	 * @param {String} type - The event type to listen for.
 	 * @param {Object} listener - The object that receives a notification when an event of the specified type occurs.
 	 */
 
 	addEventListener(type, listener) {
 
-		const map = (typeof listener === "function") ? this.m0 : this.m1;
+		const m = (typeof listener === "function") ? this.listenerFunctions : this.listenerObjects;
 
-		if(map.has(type)) {
+		if(m.has(type)) {
 
-			map.get(type).add(listener);
+			m.get(type).add(listener);
 
 		} else {
 
-			map.set(type, new Set([listener]));
+			m.set(type, new Set([listener]));
 
 		}
 
@@ -59,25 +55,24 @@ export class EventTarget {
 	/**
 	 * Removes an event handler of a specific event type from the event target.
 	 *
-	 * @method removeEventListener
 	 * @param {String} type - The event type to remove.
 	 * @param {Object} listener - The event listener to remove from the event target.
 	 */
 
 	removeEventListener(type, listener) {
 
-		const map = (typeof listener === "function") ? this.m0 : this.m1;
+		const m = (typeof listener === "function") ? this.listenerFunctions : this.listenerObjects;
 
 		let listeners;
 
-		if(map.has(type)) {
+		if(m.has(type)) {
 
-			listeners = map.get(type);
+			listeners = m.get(type);
 			listeners.delete(listener);
 
 			if(listeners.size === 0) {
 
-				map.delete(type);
+				m.delete(type);
 
 			}
 
@@ -89,25 +84,23 @@ export class EventTarget {
 	 * Dispatches an event at the specified event target, invoking the affected
 	 * event listeners in the appropriate order.
 	 *
-	 * @method dispatchEvent
-	 * @private
 	 * @param {Event} event - The event to dispatch.
 	 * @param {EventTarget} [target] - An event target.
 	 */
 
 	dispatchEvent(event, target = this) {
 
-		const m0 = target.m0;
-		const m1 = target.m1;
+		const listenerFunctions = target.listenerFunctions;
+		const listenerObjects = target.listenerObjects;
 
 		let listeners;
 		let listener;
 
 		event.target = target;
 
-		if(m0.has(event.type)) {
+		if(listenerFunctions.has(event.type)) {
 
-			listeners = m0.get(event.type);
+			listeners = listenerFunctions.get(event.type);
 
 			for(listener of listeners) {
 
@@ -117,9 +110,9 @@ export class EventTarget {
 
 		}
 
-		if(m1.has(event.type)) {
+		if(listenerObjects.has(event.type)) {
 
-			listeners = m1.get(event.type);
+			listeners = listenerObjects.get(event.type);
 
 			for(listener of listeners) {
 
