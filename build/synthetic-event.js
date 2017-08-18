@@ -1,5 +1,5 @@
 /**
- * synthetic-event v0.0.1 build Aug 02 2017
+ * synthetic-event v0.0.2 build Aug 19 2017
  * https://github.com/vanruesc/synthetic-event
  * Copyright 2017 Raoul van Rüschen, Zlib
  */
