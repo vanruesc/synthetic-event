@@ -79,9 +79,9 @@ export class MyEventTarget extends EventTarget {
 
 		super();
 
-		this.event = new Event("tick");
+		this.myEvent = new Event("tick");
 
-		setInterval(() => this.dispatchEvent(this.event), 1000);
+		setInterval(() => this.dispatchEvent(this.myEvent), 1000);
 
 	}
 
