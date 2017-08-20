@@ -33,7 +33,7 @@ const eventTarget = new EventTarget();
 
 eventTarget.addEventListener("test", function(event) {
 
-    console.log("listener function", event.target);
+	console.log("listener function", event.target);
 
 });
 
@@ -41,9 +41,9 @@ eventTarget.addEventListener("test", {
 
 	handleEvent(event) {
 
-    	console.log("listener object", event.target);
+		console.log("listener object", event.target);
 
-    }
+	}
 
 });
 
@@ -61,7 +61,7 @@ export class MyEvent extends Event {
 
 		super(type);
 
-		this.data = null;
+		this.myData = null;
 
 	}
 
