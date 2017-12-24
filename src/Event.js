@@ -1,10 +1,14 @@
 /**
  * A basic event.
- *
- * @param {String} type - The name of the event.
  */
 
 export class Event {
+
+	/**
+	 * Creates a new event.
+	 *
+	 * @param {String} type - The name of the event.
+	 */
 
 	constructor(type) {
 
@@ -20,7 +24,6 @@ export class Event {
 		 * A reference to the target to which the event was originally dispatched.
 		 *
 		 * @type {Object}
-		 * @default null
 		 */
 
 		this.target = null;
