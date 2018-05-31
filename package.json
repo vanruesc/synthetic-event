@@ -5,6 +5,7 @@
 	"homepage": "https://github.com/vanruesc/synthetic-event",
 	"main": "build/synthetic-event.js",
 	"module": "src/index.js",
+	"sideEffects": false,
 	"license": "Zlib",
 
 	"keywords": [
