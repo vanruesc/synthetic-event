@@ -14,7 +14,7 @@ class but bear in mind that its `target` property is read-only.
 An alternative way to create custom event targets is to use a [DocumentFragment](https://developer.mozilla.org/en/docs/Web/API/Document/createDocumentFragment)
 as a dummy. This solution, however, only works in a browser environment.
 
-*[API Reference](https://vanruesc.github.io/delta-controls)*
+*[API Reference](https://vanruesc.github.io/synthetic-event)*
 
 
 ## Installation
