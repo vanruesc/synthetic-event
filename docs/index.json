@@ -1,0 +1,867 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/Event.js",
+    "content": "/**\r\n * A basic event.\r\n */\r\n\r\nexport class Event {\r\n\r\n\t/**\r\n\t * Creates a new event.\r\n\t *\r\n\t * @param {String} type - The name of the event.\r\n\t */\r\n\r\n\tconstructor(type) {\r\n\r\n\t\t/**\r\n\t\t * The name of the event.\r\n\t\t *\r\n\t\t * @type {String}\r\n\t\t */\r\n\r\n\t\tthis.type = type;\r\n\r\n\t\t/**\r\n\t\t * A reference to the target to which the event was originally dispatched.\r\n\t\t *\r\n\t\t * @type {Object}\r\n\t\t */\r\n\r\n\t\tthis.target = null;\r\n\r\n\t}\r\n\r\n}\r\n",
+    "static": true,
+    "longname": "D:/Sourcecode/JavaScript/synthetic-event/src/Event.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "class",
+    "name": "Event",
+    "memberof": "src/Event.js",
+    "static": true,
+    "longname": "src/Event.js~Event",
+    "access": "public",
+    "export": true,
+    "importPath": "synthetic-event/src/Event.js",
+    "importStyle": "{Event}",
+    "description": "A basic event.",
+    "lineNumber": 5,
+    "interface": false
+  },
+  {
+    "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/Event.js~Event",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Event.js~Event#constructor",
+    "access": "public",
+    "description": "Creates a new event.",
+    "lineNumber": 13,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": "The name of the event."
+      }
+    ]
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "type",
+    "memberof": "src/Event.js~Event",
+    "static": false,
+    "longname": "src/Event.js~Event#type",
+    "access": "public",
+    "description": "The name of the event.",
+    "lineNumber": 21,
+    "type": {
+      "nullable": null,
+      "types": [
+        "String"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "member",
+    "name": "target",
+    "memberof": "src/Event.js~Event",
+    "static": false,
+    "longname": "src/Event.js~Event#target",
+    "access": "public",
+    "description": "A reference to the target to which the event was originally dispatched.",
+    "lineNumber": 29,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
+    "name": "src/EventTarget.js",
+    "content": "/**\r\n * A base class for objects that can receive events and may have listeners for\r\n * them.\r\n */\r\n\r\nexport class EventTarget {\r\n\r\n\t/**\r\n\t * Constructs a new EventTarget.\r\n\t */\r\n\r\n\tconstructor() {\r\n\r\n\t\t/**\r\n\t\t * A map of event listener functions.\r\n\t\t *\r\n\t\t * @type {Map}\r\n\t\t */\r\n\r\n\t\tthis.listenerFunctions = new Map();\r\n\r\n\t\t/**\r\n\t\t * A map of event listener objects.\r\n\t\t *\r\n\t\t * @type {Map}\r\n\t\t */\r\n\r\n\t\tthis.listenerObjects = new Map();\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Registers an event handler of a specific event type on the event target.\r\n\t *\r\n\t * @param {String} type - The event type to listen for.\r\n\t * @param {Object} listener - The object that receives a notification when an event of the specified type occurs.\r\n\t */\r\n\r\n\taddEventListener(type, listener) {\r\n\r\n\t\tconst m = (typeof listener === \"function\") ? this.listenerFunctions : this.listenerObjects;\r\n\r\n\t\tif(m.has(type)) {\r\n\r\n\t\t\tm.get(type).add(listener);\r\n\r\n\t\t} else {\r\n\r\n\t\t\tm.set(type, new Set([listener]));\r\n\r\n\t\t}\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Removes an event handler of a specific event type from the event target.\r\n\t *\r\n\t * @param {String} type - The event type to remove.\r\n\t * @param {Object} listener - The event listener to remove from the event target.\r\n\t */\r\n\r\n\tremoveEventListener(type, listener) {\r\n\r\n\t\tconst m = (typeof listener === \"function\") ? this.listenerFunctions : this.listenerObjects;\r\n\r\n\t\tlet listeners;\r\n\r\n\t\tif(m.has(type)) {\r\n\r\n\t\t\tlisteners = m.get(type);\r\n\t\t\tlisteners.delete(listener);\r\n\r\n\t\t\tif(listeners.size === 0) {\r\n\r\n\t\t\t\tm.delete(type);\r\n\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Dispatches an event at the specified event target, invoking the affected\r\n\t * event listeners in the appropriate order.\r\n\t *\r\n\t * @param {Event} event - The event to dispatch.\r\n\t * @param {EventTarget} [target] - An event target.\r\n\t */\r\n\r\n\tdispatchEvent(event, target = this) {\r\n\r\n\t\tconst listenerFunctions = target.listenerFunctions;\r\n\t\tconst listenerObjects = target.listenerObjects;\r\n\r\n\t\tlet listeners;\r\n\t\tlet listener;\r\n\r\n\t\tevent.target = target;\r\n\r\n\t\tif(listenerFunctions.has(event.type)) {\r\n\r\n\t\t\tlisteners = listenerFunctions.get(event.type);\r\n\r\n\t\t\tfor(listener of listeners) {\r\n\r\n\t\t\t\tlistener.call(target, event);\r\n\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\tif(listenerObjects.has(event.type)) {\r\n\r\n\t\t\tlisteners = listenerObjects.get(event.type);\r\n\r\n\t\t\tfor(listener of listeners) {\r\n\r\n\t\t\t\tlistener.handleEvent(event);\r\n\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t}\r\n\r\n}\r\n",
+    "static": true,
+    "longname": "D:/Sourcecode/JavaScript/synthetic-event/src/EventTarget.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 54,
+    "kind": "class",
+    "name": "EventTarget",
+    "memberof": "src/EventTarget.js",
+    "static": true,
+    "longname": "src/EventTarget.js~EventTarget",
+    "access": "public",
+    "export": true,
+    "importPath": "synthetic-event/src/EventTarget.js",
+    "importStyle": "{EventTarget}",
+    "description": "A base class for objects that can receive events and may have listeners for\nthem.",
+    "lineNumber": 6,
+    "interface": false
+  },
+  {
+    "__docId__": 55,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/EventTarget.js~EventTarget",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/EventTarget.js~EventTarget#constructor",
+    "access": "public",
+    "description": "Constructs a new EventTarget.",
+    "lineNumber": 12
+  },
+  {
+    "__docId__": 56,
+    "kind": "member",
+    "name": "listenerFunctions",
+    "memberof": "src/EventTarget.js~EventTarget",
+    "static": false,
+    "longname": "src/EventTarget.js~EventTarget#listenerFunctions",
+    "access": "public",
+    "description": "A map of event listener functions.",
+    "lineNumber": 20,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Map"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "member",
+    "name": "listenerObjects",
+    "memberof": "src/EventTarget.js~EventTarget",
+    "static": false,
+    "longname": "src/EventTarget.js~EventTarget#listenerObjects",
+    "access": "public",
+    "description": "A map of event listener objects.",
+    "lineNumber": 28,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Map"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "method",
+    "name": "addEventListener",
+    "memberof": "src/EventTarget.js~EventTarget",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/EventTarget.js~EventTarget#addEventListener",
+    "access": "public",
+    "description": "Registers an event handler of a specific event type on the event target.",
+    "lineNumber": 39,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": "The event type to listen for."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "listener",
+        "description": "The object that receives a notification when an event of the specified type occurs."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 59,
+    "kind": "method",
+    "name": "removeEventListener",
+    "memberof": "src/EventTarget.js~EventTarget",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/EventTarget.js~EventTarget#removeEventListener",
+    "access": "public",
+    "description": "Removes an event handler of a specific event type from the event target.",
+    "lineNumber": 62,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": "The event type to remove."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "listener",
+        "description": "The event listener to remove from the event target."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "name": "dispatchEvent",
+    "memberof": "src/EventTarget.js~EventTarget",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/EventTarget.js~EventTarget#dispatchEvent",
+    "access": "public",
+    "description": "Dispatches an event at the specified event target, invoking the affected\nevent listeners in the appropriate order.",
+    "lineNumber": 91,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Event"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": "The event to dispatch."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "EventTarget"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "target",
+        "description": "An event target."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 61,
+    "kind": "file",
+    "name": "src/index.js",
+    "content": "/**\r\n * A collection of event classes.\r\n *\r\n * @module synthetic-event\r\n */\r\n\r\nexport { Event } from \"./Event.js\";\r\nexport { EventTarget } from \"./EventTarget.js\";\r\n",
+    "static": true,
+    "longname": "D:/Sourcecode/JavaScript/synthetic-event/src/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "kind": "index",
+    "content": "# Synthetic Event\r\n\r\n[![Build status](https://travis-ci.org/vanruesc/synthetic-event.svg?branch=master)](https://travis-ci.org/vanruesc/synthetic-event)\r\n[![NPM version](https://badge.fury.io/js/synthetic-event.svg)](http://badge.fury.io/js/synthetic-event)\r\n[![Dependencies](https://david-dm.org/vanruesc/synthetic-event.svg?branch=master)](https://david-dm.org/vanruesc/synthetic-event)\r\n\r\nThis library provides a concise implementation of the two interfaces [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)\r\nand [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget). The included base classes allow you to easily create\r\nsynthetic events and custom event targets in any environment.\r\n\r\nIn case your focus lies on DOM events, you may want to take a look at the native [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)\r\nclass but bear in mind that its `target` property is read-only. \r\n\r\nAn alternative way to create custom event targets is to use a [DocumentFragment](https://developer.mozilla.org/en/docs/Web/API/Document/createDocumentFragment)\r\nas a dummy. This solution, however, only works in a browser environment.\r\n\r\n\r\n## Installation\r\n\r\n```sh\r\nnpm install synthetic-event\r\n``` \r\n\r\n\r\n## Usage\r\n\r\n##### Basics\r\n\r\n```javascript\r\nimport { Event, EventTarget } from \"synthetic-event\";\r\n\r\nconst eventTarget = new EventTarget();\r\n\r\neventTarget.addEventListener(\"test\", function(event) {\r\n\r\n\tconsole.log(\"listener function\", event.target);\r\n\r\n});\r\n\r\neventTarget.addEventListener(\"test\", {\r\n\r\n\thandleEvent(event) {\r\n\r\n\t\tconsole.log(\"listener object\", event.target);\r\n\r\n\t}\r\n\r\n});\r\n\r\neventTarget.dispatchEvent(new Event(\"test\"));\r\n```\r\n\r\n##### Custom Events\r\n\r\n```javascript\r\nimport { Event } from \"synthetic-event\";\r\n\r\nexport class MyEvent extends Event {\r\n\r\n\tconstructor(type) {\r\n\r\n\t\tsuper(type);\r\n\r\n\t\tthis.myData = null;\r\n\r\n\t}\r\n\r\n}\r\n```\r\n\r\n##### Custom EventTargets\r\n\r\n```javascript\r\nimport { Event, EventTarget } from \"synthetic-event\";\r\n\r\nexport class MyEventTarget extends EventTarget {\r\n\r\n\tconstructor() {\r\n\r\n\t\tsuper();\r\n\r\n\t\tthis.myEvent = new Event(\"tick\");\r\n\r\n\t\tsetInterval(() => this.dispatchEvent(this.myEvent), 1000);\r\n\r\n\t}\r\n\r\n}\r\n```\r\n\r\n\r\n## Contributing\r\n\r\nMaintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.\r\n",
+    "longname": "D:\\Sourcecode\\JavaScript\\synthetic-event\\README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\r\n\t\"name\": \"synthetic-event\",\r\n\t\"version\": \"0.0.3\",\r\n\t\"description\": \"A collection of base classes for the creation of custom events and event targets.\",\r\n\t\"homepage\": \"https://github.com/vanruesc/synthetic-event\",\r\n\t\"main\": \"build/synthetic-event.js\",\r\n\t\"module\": \"src/index.js\",\r\n\t\"sideEffects\": false,\r\n\t\"license\": \"Zlib\",\r\n\r\n\t\"keywords\": [\r\n\t\t\"event\",\r\n\t\t\"target\",\r\n\t\t\"emitter\",\r\n\t\t\"listener\",\r\n\t\t\"dispatcher\",\r\n\t\t\"synthetic\",\r\n\t\t\"custom\",\r\n\t\t\"browser\",\r\n\t\t\"node\",\r\n\t\t\"client\",\r\n\t\t\"server\"\r\n\t],\r\n\r\n\t\"author\": {\r\n\t\t\"name\": \"Raoul van Rüschen\",\r\n\t\t\"email\": \"vanruesc@outlook.de\"\r\n\t},\r\n\r\n\t\"repository\": {\r\n\t\t\"type\": \"git\",\r\n\t\t\"url\": \"https://github.com/vanruesc/synthetic-event.git\"\r\n\t},\r\n\r\n\t\"bugs\": {\r\n\t\t\"url\": \"https://github.com/vanruesc/synthetic-event/issues\"\r\n\t},\r\n\r\n\t\"files\": [\r\n\t\t\"src\",\r\n\t\t\"build\"\r\n\t],\r\n\r\n\t\"scripts\": {\r\n\t\t\"lint\": \"npm run lint:lib && npm run lint:test\",\r\n\t\t\"lint:config\": \"eslint *.js\",\r\n\t\t\"lint:lib\": \"eslint src\",\r\n\t\t\"lint:test\": \"eslint test\",\r\n\t\t\"build\": \"rollup -c\",\r\n\t\t\"build:production\": \"cross-env NODE_ENV=production rollup -c\",\r\n\t\t\"doc\": \"esdoc\",\r\n\t\t\"test\": \"ava\",\r\n\t\t\"prepack\": \"npm run lint && npm run build:production\"\r\n\t},\r\n\r\n\t\"engines\": {\r\n\t\t\"node\": \">=4.0.0\",\r\n\t\t\"npm\": \">=4.0.0\"\r\n\t},\r\n\r\n\t\"ava\": {\r\n\t\t\"failFast\": true,\r\n\t\t\"files\": [\"test/**/*.js\"]\r\n\t},\r\n\r\n\t\"eslintConfig\": {\r\n\t\t\"extends\": \"delta\"\r\n\t},\r\n\r\n\t\"devDependencies\": {\r\n\t\t\"ava\": \"0.x.x\",\r\n\t\t\"babel-core\": \"6.x.x\",\r\n\t\t\"babel-plugin-external-helpers\": \"6.x.x\",\r\n\t\t\"babel-preset-env\": \"1.x.x\",\r\n\t\t\"cross-env\": \"5.x.x\",\r\n\t\t\"esdoc\": \"1.x.x\",\r\n\t\t\"esdoc-standard-plugin\": \"1.x.x\",\r\n\t\t\"eslint\": \"5.x.x\",\r\n\t\t\"eslint-config-delta\": \"0.x.x\",\r\n\t\t\"rollup\": \"0.x.x\",\r\n\t\t\"rollup-plugin-babel\": \"3.x.x\",\r\n\t\t\"rollup-plugin-babel-minify\": \"5.x.x\",\r\n\t\t\"rollup-plugin-node-resolve\": \"3.x.x\"\r\n\t}\r\n}\r\n",
+    "longname": "D:\\Sourcecode\\JavaScript\\synthetic-event\\package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

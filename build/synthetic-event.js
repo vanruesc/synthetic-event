@@ -1,9 +1,8 @@
 /**
- * synthetic-event v0.0.2 build Aug 19 2017
+ * synthetic-event v0.0.3 build Mon Jul 02 2018
  * https://github.com/vanruesc/synthetic-event
- * Copyright 2017 Raoul van Rüschen, Zlib
+ * Copyright 2018 Raoul van Rüschen, Zlib
  */
-
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -34,72 +33,24 @@
     };
   }();
 
-  /**
-   * A basic event.
-   *
-   * @param {String} type - The name of the event.
-   */
-
   var Event = function Event(type) {
   		classCallCheck(this, Event);
 
 
-  		/**
-     * The name of the event.
-     *
-     * @type {String}
-     */
-
   		this.type = type;
-
-  		/**
-     * A reference to the target to which the event was originally dispatched.
-     *
-     * @type {Object}
-     * @default null
-     */
 
   		this.target = null;
   };
 
-  /**
-   * A base class for objects that can receive events and may have listeners for
-   * them.
-   */
-
   var EventTarget = function () {
-
-  		/**
-     * Constructs a new EventTarget.
-     */
-
   		function EventTarget() {
   				classCallCheck(this, EventTarget);
 
 
-  				/**
-       * A map of event listener functions.
-       *
-       * @type {Map}
-       */
-
   				this.listenerFunctions = new Map();
-
-  				/**
-       * A map of event listener objects.
-       *
-       * @type {Map}
-       */
 
   				this.listenerObjects = new Map();
   		}
-
-  		/**
-     * Registers an event handler of a specific event type on the event target.
-     *
-     * @param {String} type - The event type to listen for.
-     * @param {Object} listener - The object that receives a notification when an event of the specified type occurs.
-     */
 
   		createClass(EventTarget, [{
   				key: "addEventListener",
@@ -115,14 +66,6 @@
   								m.set(type, new Set([listener]));
   						}
   				}
-
-  				/**
-       * Removes an event handler of a specific event type from the event target.
-       *
-       * @param {String} type - The event type to remove.
-       * @param {Object} listener - The event listener to remove from the event target.
-       */
-
   		}, {
   				key: "removeEventListener",
   				value: function removeEventListener(type, listener) {
@@ -142,15 +85,6 @@
   								}
   						}
   				}
-
-  				/**
-       * Dispatches an event at the specified event target, invoking the affected
-       * event listeners in the appropriate order.
-       *
-       * @param {Event} event - The event to dispatch.
-       * @param {EventTarget} [target] - An event target.
-       */
-
   		}, {
   				key: "dispatchEvent",
   				value: function dispatchEvent(event) {
@@ -230,12 +164,6 @@
   		}]);
   		return EventTarget;
   }();
-
-  /**
-   * A collection of event classes.
-   *
-   * @module synthetic-event
-   */
 
   exports.Event = Event;
   exports.EventTarget = EventTarget;
