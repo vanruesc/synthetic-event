@@ -1,4 +1,8 @@
 /**
+ * @external {EventListener} https://developer.mozilla.org/en-US/docs/Web/API/EventListener
+ */
+
+/**
  * An event target that can dispatch events to registered listeners.
  */
 
