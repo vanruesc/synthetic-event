@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/Event.js",
-    "content": "/**\r\n * A basic event.\r\n */\r\n\r\nexport class Event {\r\n\r\n\t/**\r\n\t * Creates a new event.\r\n\t *\r\n\t * @param {String} type - The name of the event.\r\n\t */\r\n\r\n\tconstructor(type) {\r\n\r\n\t\t/**\r\n\t\t * The name of the event.\r\n\t\t *\r\n\t\t * @type {String}\r\n\t\t */\r\n\r\n\t\tthis.type = type;\r\n\r\n\t\t/**\r\n\t\t * A reference to the target to which the event was originally dispatched.\r\n\t\t *\r\n\t\t * @type {Object}\r\n\t\t */\r\n\r\n\t\tthis.target = null;\r\n\r\n\t}\r\n\r\n}\r\n",
+    "content": "/**\r\n * An event.\r\n */\r\n\r\nexport class Event {\r\n\r\n\t/**\r\n\t * Creates a new event.\r\n\t *\r\n\t * @param {String} type - The name of the event.\r\n\t */\r\n\r\n\tconstructor(type) {\r\n\r\n\t\t/**\r\n\t\t * The name of the event.\r\n\t\t *\r\n\t\t * @type {String}\r\n\t\t */\r\n\r\n\t\tthis.type = type;\r\n\r\n\t\t/**\r\n\t\t * A reference to the target to which the event was originally dispatched.\r\n\t\t *\r\n\t\t * @type {Object}\r\n\t\t */\r\n\r\n\t\tthis.target = null;\r\n\r\n\t}\r\n\r\n}\r\n",
     "static": true,
     "longname": "D:/Sourcecode/JavaScript/synthetic-event/src/Event.js",
     "access": "public",
@@ -585,7 +585,7 @@
     "export": true,
     "importPath": "synthetic-event/src/Event.js",
     "importStyle": "{Event}",
-    "description": "A basic event.",
+    "description": "An event.",
     "lineNumber": 5,
     "interface": false
   },
@@ -656,7 +656,7 @@
     "__docId__": 53,
     "kind": "file",
     "name": "src/EventTarget.js",
-    "content": "/**\r\n * A base class for objects that can receive events and may have listeners for\r\n * them.\r\n */\r\n\r\nexport class EventTarget {\r\n\r\n\t/**\r\n\t * Constructs a new EventTarget.\r\n\t */\r\n\r\n\tconstructor() {\r\n\r\n\t\t/**\r\n\t\t * A map of event listener functions.\r\n\t\t *\r\n\t\t * @type {Map}\r\n\t\t */\r\n\r\n\t\tthis.listenerFunctions = new Map();\r\n\r\n\t\t/**\r\n\t\t * A map of event listener objects.\r\n\t\t *\r\n\t\t * @type {Map}\r\n\t\t */\r\n\r\n\t\tthis.listenerObjects = new Map();\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Registers an event handler of a specific event type on the event target.\r\n\t *\r\n\t * @param {String} type - The event type to listen for.\r\n\t * @param {Object} listener - The object that receives a notification when an event of the specified type occurs.\r\n\t */\r\n\r\n\taddEventListener(type, listener) {\r\n\r\n\t\tconst m = (typeof listener === \"function\") ? this.listenerFunctions : this.listenerObjects;\r\n\r\n\t\tif(m.has(type)) {\r\n\r\n\t\t\tm.get(type).add(listener);\r\n\r\n\t\t} else {\r\n\r\n\t\t\tm.set(type, new Set([listener]));\r\n\r\n\t\t}\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Removes an event handler of a specific event type from the event target.\r\n\t *\r\n\t * @param {String} type - The event type to remove.\r\n\t * @param {Object} listener - The event listener to remove from the event target.\r\n\t */\r\n\r\n\tremoveEventListener(type, listener) {\r\n\r\n\t\tconst m = (typeof listener === \"function\") ? this.listenerFunctions : this.listenerObjects;\r\n\r\n\t\tlet listeners;\r\n\r\n\t\tif(m.has(type)) {\r\n\r\n\t\t\tlisteners = m.get(type);\r\n\t\t\tlisteners.delete(listener);\r\n\r\n\t\t\tif(listeners.size === 0) {\r\n\r\n\t\t\t\tm.delete(type);\r\n\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Dispatches an event at the specified event target, invoking the affected\r\n\t * event listeners in the appropriate order.\r\n\t *\r\n\t * @param {Event} event - The event to dispatch.\r\n\t * @param {EventTarget} [target] - An event target.\r\n\t */\r\n\r\n\tdispatchEvent(event, target = this) {\r\n\r\n\t\tconst listenerFunctions = target.listenerFunctions;\r\n\t\tconst listenerObjects = target.listenerObjects;\r\n\r\n\t\tlet listeners;\r\n\t\tlet listener;\r\n\r\n\t\tevent.target = target;\r\n\r\n\t\tif(listenerFunctions.has(event.type)) {\r\n\r\n\t\t\tlisteners = listenerFunctions.get(event.type);\r\n\r\n\t\t\tfor(listener of listeners) {\r\n\r\n\t\t\t\tlistener.call(target, event);\r\n\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\tif(listenerObjects.has(event.type)) {\r\n\r\n\t\t\tlisteners = listenerObjects.get(event.type);\r\n\r\n\t\t\tfor(listener of listeners) {\r\n\r\n\t\t\t\tlistener.handleEvent(event);\r\n\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t}\r\n\r\n}\r\n",
+    "content": "/**\r\n * @external {EventListener} https://developer.mozilla.org/en-US/docs/Web/API/EventListener\r\n */\r\n\r\n/**\r\n * An event target that can dispatch events to registered listeners.\r\n */\r\n\r\nexport class EventTarget {\r\n\r\n\t/**\r\n\t * Constructs a new EventTarget.\r\n\t */\r\n\r\n\tconstructor() {\r\n\r\n\t\t/**\r\n\t\t * A map of event listener functions.\r\n\t\t *\r\n\t\t * @type {Map}\r\n\t\t * @protected\r\n\t\t */\r\n\r\n\t\tthis.listenerFunctions = new Map();\r\n\r\n\t\t/**\r\n\t\t * A map of event listener objects.\r\n\t\t *\r\n\t\t * @type {Map}\r\n\t\t * @protected\r\n\t\t */\r\n\r\n\t\tthis.listenerObjects = new Map();\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Registers an event handler of a specific event type on the event target.\r\n\t *\r\n\t * @param {String} type - The event type to listen for.\r\n\t * @param {EventListener|Function} listener - An event listener or callback.\r\n\t */\r\n\r\n\taddEventListener(type, listener) {\r\n\r\n\t\tconst m = (typeof listener === \"function\") ?\r\n\t\t\tthis.listenerFunctions : this.listenerObjects;\r\n\r\n\t\tif(m.has(type)) {\r\n\r\n\t\t\tm.get(type).add(listener);\r\n\r\n\t\t} else {\r\n\r\n\t\t\tm.set(type, new Set([listener]));\r\n\r\n\t\t}\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Removes an event handler of a specific event type from the event target.\r\n\t *\r\n\t * @param {String} type - The event type to remove.\r\n\t * @param {EventListener|Function} listener - The event listener to remove.\r\n\t */\r\n\r\n\tremoveEventListener(type, listener) {\r\n\r\n\t\tconst m = (typeof listener === \"function\") ?\r\n\t\t\tthis.listenerFunctions : this.listenerObjects;\r\n\r\n\t\tif(m.has(type)) {\r\n\r\n\t\t\tconst listeners = m.get(type);\r\n\t\t\tlisteners.delete(listener);\r\n\r\n\t\t\tif(listeners.size === 0) {\r\n\r\n\t\t\t\tm.delete(type);\r\n\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t}\r\n\r\n\t/**\r\n\t * Dispatches an event at the specified event target, invoking the affected\r\n\t * event listeners in the appropriate order.\r\n\t *\r\n\t * @param {Event} event - The event to dispatch.\r\n\t * @param {EventTarget} [target=this] - An event target.\r\n\t */\r\n\r\n\tdispatchEvent(event, target = this) {\r\n\r\n\t\tconst listenerFunctions = target.listenerFunctions;\r\n\t\tconst listenerObjects = target.listenerObjects;\r\n\r\n\t\tlet listeners, listener;\r\n\r\n\t\tevent.target = target;\r\n\r\n\t\tif(listenerFunctions.has(event.type)) {\r\n\r\n\t\t\tlisteners = listenerFunctions.get(event.type);\r\n\r\n\t\t\tfor(listener of listeners) {\r\n\r\n\t\t\t\tlistener.call(target, event);\r\n\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t\tif(listenerObjects.has(event.type)) {\r\n\r\n\t\t\tlisteners = listenerObjects.get(event.type);\r\n\r\n\t\t\tfor(listener of listeners) {\r\n\r\n\t\t\t\tlistener.handleEvent(event);\r\n\r\n\t\t\t}\r\n\r\n\t\t}\r\n\r\n\t}\r\n\r\n}\r\n",
     "static": true,
     "longname": "D:/Sourcecode/JavaScript/synthetic-event/src/EventTarget.js",
     "access": "public",
@@ -665,6 +665,17 @@
   },
   {
     "__docId__": 54,
+    "kind": "external",
+    "name": "EventListener",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/EventListener",
+    "memberof": "src/EventTarget.js",
+    "static": true,
+    "longname": "src/EventTarget.js~EventListener",
+    "access": "public",
+    "description": ""
+  },
+  {
+    "__docId__": 55,
     "kind": "class",
     "name": "EventTarget",
     "memberof": "src/EventTarget.js",
@@ -674,12 +685,12 @@
     "export": true,
     "importPath": "synthetic-event/src/EventTarget.js",
     "importStyle": "{EventTarget}",
-    "description": "A base class for objects that can receive events and may have listeners for\nthem.",
-    "lineNumber": 6,
+    "description": "An event target that can dispatch events to registered listeners.",
+    "lineNumber": 9,
     "interface": false
   },
   {
-    "__docId__": 55,
+    "__docId__": 56,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/EventTarget.js~EventTarget",
@@ -689,37 +700,18 @@
     "longname": "src/EventTarget.js~EventTarget#constructor",
     "access": "public",
     "description": "Constructs a new EventTarget.",
-    "lineNumber": 12
+    "lineNumber": 15
   },
   {
-    "__docId__": 56,
+    "__docId__": 57,
     "kind": "member",
     "name": "listenerFunctions",
     "memberof": "src/EventTarget.js~EventTarget",
     "static": false,
     "longname": "src/EventTarget.js~EventTarget#listenerFunctions",
-    "access": "public",
+    "access": "protected",
     "description": "A map of event listener functions.",
-    "lineNumber": 20,
-    "type": {
-      "nullable": null,
-      "types": [
-        "Map"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 57,
-    "kind": "member",
-    "name": "listenerObjects",
-    "memberof": "src/EventTarget.js~EventTarget",
-    "static": false,
-    "longname": "src/EventTarget.js~EventTarget#listenerObjects",
-    "access": "public",
-    "description": "A map of event listener objects.",
-    "lineNumber": 28,
+    "lineNumber": 24,
     "type": {
       "nullable": null,
       "types": [
@@ -731,6 +723,25 @@
   },
   {
     "__docId__": 58,
+    "kind": "member",
+    "name": "listenerObjects",
+    "memberof": "src/EventTarget.js~EventTarget",
+    "static": false,
+    "longname": "src/EventTarget.js~EventTarget#listenerObjects",
+    "access": "protected",
+    "description": "A map of event listener objects.",
+    "lineNumber": 33,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Map"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 59,
     "kind": "method",
     "name": "addEventListener",
     "memberof": "src/EventTarget.js~EventTarget",
@@ -740,7 +751,7 @@
     "longname": "src/EventTarget.js~EventTarget#addEventListener",
     "access": "public",
     "description": "Registers an event handler of a specific event type on the event target.",
-    "lineNumber": 39,
+    "lineNumber": 44,
     "params": [
       {
         "nullable": null,
@@ -755,18 +766,19 @@
       {
         "nullable": null,
         "types": [
-          "Object"
+          "EventListener",
+          "Function"
         ],
         "spread": false,
         "optional": false,
         "name": "listener",
-        "description": "The object that receives a notification when an event of the specified type occurs."
+        "description": "An event listener or callback."
       }
     ],
     "return": null
   },
   {
-    "__docId__": 59,
+    "__docId__": 60,
     "kind": "method",
     "name": "removeEventListener",
     "memberof": "src/EventTarget.js~EventTarget",
@@ -776,7 +788,7 @@
     "longname": "src/EventTarget.js~EventTarget#removeEventListener",
     "access": "public",
     "description": "Removes an event handler of a specific event type from the event target.",
-    "lineNumber": 62,
+    "lineNumber": 68,
     "params": [
       {
         "nullable": null,
@@ -791,18 +803,19 @@
       {
         "nullable": null,
         "types": [
-          "Object"
+          "EventListener",
+          "Function"
         ],
         "spread": false,
         "optional": false,
         "name": "listener",
-        "description": "The event listener to remove from the event target."
+        "description": "The event listener to remove."
       }
     ],
     "return": null
   },
   {
-    "__docId__": 60,
+    "__docId__": 61,
     "kind": "method",
     "name": "dispatchEvent",
     "memberof": "src/EventTarget.js~EventTarget",
@@ -812,7 +825,7 @@
     "longname": "src/EventTarget.js~EventTarget#dispatchEvent",
     "access": "public",
     "description": "Dispatches an event at the specified event target, invoking the affected\nevent listeners in the appropriate order.",
-    "lineNumber": 91,
+    "lineNumber": 96,
     "params": [
       {
         "nullable": null,
@@ -831,6 +844,8 @@
         ],
         "spread": false,
         "optional": true,
+        "defaultValue": "this",
+        "defaultRaw": "this",
         "name": "target",
         "description": "An event target."
       }
@@ -838,7 +853,7 @@
     "return": null
   },
   {
-    "__docId__": 61,
+    "__docId__": 62,
     "kind": "file",
     "name": "src/index.js",
     "content": "/**\r\n * A collection of event classes.\r\n *\r\n * @module synthetic-event\r\n */\r\n\r\nexport { Event } from \"./Event.js\";\r\nexport { EventTarget } from \"./EventTarget.js\";\r\n",
@@ -858,7 +873,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\r\n\t\"name\": \"synthetic-event\",\r\n\t\"version\": \"0.0.4\",\r\n\t\"description\": \"A collection of base classes for the creation of custom events and event targets.\",\r\n\t\"homepage\": \"https://github.com/vanruesc/synthetic-event\",\r\n\t\"main\": \"build/synthetic-event.js\",\r\n\t\"module\": \"src/index.js\",\r\n\t\"sideEffects\": false,\r\n\t\"license\": \"Zlib\",\r\n\r\n\t\"keywords\": [\r\n\t\t\"event\",\r\n\t\t\"target\",\r\n\t\t\"emitter\",\r\n\t\t\"listener\",\r\n\t\t\"dispatcher\",\r\n\t\t\"synthetic\",\r\n\t\t\"custom\",\r\n\t\t\"browser\",\r\n\t\t\"node\",\r\n\t\t\"client\",\r\n\t\t\"server\"\r\n\t],\r\n\r\n\t\"author\": {\r\n\t\t\"name\": \"Raoul van Rüschen\",\r\n\t\t\"email\": \"vanruesc@outlook.de\"\r\n\t},\r\n\r\n\t\"repository\": {\r\n\t\t\"type\": \"git\",\r\n\t\t\"url\": \"https://github.com/vanruesc/synthetic-event.git\"\r\n\t},\r\n\r\n\t\"bugs\": {\r\n\t\t\"url\": \"https://github.com/vanruesc/synthetic-event/issues\"\r\n\t},\r\n\r\n\t\"files\": [\r\n\t\t\"src\",\r\n\t\t\"build\"\r\n\t],\r\n\r\n\t\"scripts\": {\r\n\t\t\"lint\": \"npm run lint:lib && npm run lint:test\",\r\n\t\t\"lint:config\": \"eslint *.js\",\r\n\t\t\"lint:lib\": \"eslint src\",\r\n\t\t\"lint:test\": \"eslint test\",\r\n\t\t\"build\": \"rollup -c\",\r\n\t\t\"build:production\": \"cross-env NODE_ENV=production rollup -c\",\r\n\t\t\"doc\": \"esdoc\",\r\n\t\t\"test\": \"ava\",\r\n\t\t\"prepack\": \"npm run lint && npm run build:production\"\r\n\t},\r\n\r\n\t\"engines\": {\r\n\t\t\"node\": \">=4.0.0\",\r\n\t\t\"npm\": \">=4.0.0\"\r\n\t},\r\n\r\n\t\"ava\": {\r\n\t\t\"failFast\": true,\r\n\t\t\"files\": [\"test/**/*.js\"]\r\n\t},\r\n\r\n\t\"eslintConfig\": {\r\n\t\t\"extends\": \"delta\"\r\n\t},\r\n\r\n\t\"devDependencies\": {\r\n\t\t\"ava\": \"0.x.x\",\r\n\t\t\"babel-core\": \"6.x.x\",\r\n\t\t\"babel-plugin-external-helpers\": \"6.x.x\",\r\n\t\t\"babel-preset-env\": \"1.x.x\",\r\n\t\t\"cross-env\": \"5.x.x\",\r\n\t\t\"esdoc\": \"1.x.x\",\r\n\t\t\"esdoc-standard-plugin\": \"1.x.x\",\r\n\t\t\"eslint\": \"5.x.x\",\r\n\t\t\"eslint-config-delta\": \"0.x.x\",\r\n\t\t\"rollup\": \"0.x.x\",\r\n\t\t\"rollup-plugin-babel\": \"3.x.x\",\r\n\t\t\"rollup-plugin-babel-minify\": \"5.x.x\",\r\n\t\t\"rollup-plugin-node-resolve\": \"3.x.x\"\r\n\t}\r\n}\r\n",
+    "content": "{\r\n\t\"name\": \"synthetic-event\",\r\n\t\"version\": \"1.0.0\",\r\n\t\"description\": \"A collection of base classes for the creation of custom events and event targets.\",\r\n\t\"homepage\": \"https://github.com/vanruesc/synthetic-event\",\r\n\t\"main\": \"build/synthetic-event.js\",\r\n\t\"module\": \"build/synthetic-event.esm.js\",\r\n\t\"sideEffects\": false,\r\n\t\"license\": \"Zlib\",\r\n\r\n\t\"keywords\": [\r\n\t\t\"event\",\r\n\t\t\"target\",\r\n\t\t\"emitter\",\r\n\t\t\"listener\",\r\n\t\t\"dispatcher\",\r\n\t\t\"synthetic\",\r\n\t\t\"custom\",\r\n\t\t\"browser\",\r\n\t\t\"node\",\r\n\t\t\"client\",\r\n\t\t\"server\"\r\n\t],\r\n\r\n\t\"author\": {\r\n\t\t\"name\": \"Raoul van Rüschen\",\r\n\t\t\"email\": \"vanruesc@outlook.de\"\r\n\t},\r\n\r\n\t\"repository\": {\r\n\t\t\"type\": \"git\",\r\n\t\t\"url\": \"https://github.com/vanruesc/synthetic-event.git\"\r\n\t},\r\n\r\n\t\"bugs\": {\r\n\t\t\"url\": \"https://github.com/vanruesc/synthetic-event/issues\"\r\n\t},\r\n\r\n\t\"files\": [\r\n\t\t\"src\",\r\n\t\t\"build\"\r\n\t],\r\n\r\n\t\"scripts\": {\r\n\t\t\"ava\": \"ava\",\r\n\t\t\"lint\": \"npm run lint:lib && npm run lint:test\",\r\n\t\t\"lint:config\": \"eslint *.js\",\r\n\t\t\"lint:lib\": \"eslint src\",\r\n\t\t\"lint:test\": \"eslint test\",\r\n\t\t\"build\": \"rollup -c\",\r\n\t\t\"build:production\": \"cross-env NODE_ENV=production rollup -c\",\r\n\t\t\"watch\": \"rollup -c --watch\",\r\n\t\t\"doc\": \"esdoc\",\r\n\t\t\"pretest\": \"npm run lint && npm run build:production\",\r\n\t\t\"test\": \"npm run ava\",\r\n\t\t\"prepack\": \"npm test\"\r\n\t},\r\n\r\n\t\"ava\": {\r\n\t\t\"failFast\": true,\r\n\t\t\"files\": [\"test/**/*.js\"]\r\n\t},\r\n\r\n\t\"eslintConfig\": {\r\n\t\t\"extends\": \"delta\"\r\n\t},\r\n\r\n\t\"devDependencies\": {\r\n\t\t\"@babel/core\": \"7.x.x\",\r\n\t\t\"@babel/preset-env\": \"7.x.x\",\r\n\t\t\"ava\": \"2.x.x\",\r\n\t\t\"cross-env\": \"5.x.x\",\r\n\t\t\"esdoc\": \"1.x.x\",\r\n\t\t\"esdoc-standard-plugin\": \"1.x.x\",\r\n\t\t\"eslint\": \"6.x.x\",\r\n\t\t\"eslint-config-delta\": \"0.x.x\",\r\n\t\t\"rollup\": \"1.x.x\",\r\n\t\t\"rollup-plugin-babel\": \"4.x.x\",\r\n\t\t\"rollup-plugin-babel-minify\": \"9.x.x\",\r\n\t\t\"rollup-plugin-node-resolve\": \"5.x.x\"\r\n\t}\r\n}\r\n",
     "longname": "D:\\Sourcecode\\JavaScript\\synthetic-event\\package.json",
     "name": "package.json",
     "static": true,

@@ -324,6 +324,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/eventtarget.js~eventlistener",
+    "https://developer.mozilla.org/en-US/docs/Web/API/EventListener",
+    "src/EventTarget.js~EventListener",
+    "external"
+  ],
+  [
     "src/eventtarget.js~eventtarget#addeventlistener",
     "class/src/EventTarget.js~EventTarget.html#instance-method-addEventListener",
     "src/EventTarget.js~EventTarget#addEventListener",

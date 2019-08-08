@@ -1,6 +1,6 @@
 {
 	"name": "synthetic-event",
-	"version": "0.0.4",
+	"version": "1.0.0",
 	"description": "A collection of base classes for the creation of custom events and event targets.",
 	"homepage": "https://github.com/vanruesc/synthetic-event",
 	"main": "build/synthetic-event.js",

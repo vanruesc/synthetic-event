@@ -31,18 +31,19 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Event.js~Event.html">Event</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/EventTarget.js~EventTarget.html">EventTarget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventListener">EventListener</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {EventTarget} from &apos;<span><a href="file/src/EventTarget.js.html#lineNumber6">synthetic-event/src/EventTarget.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {EventTarget} from &apos;<span><a href="file/src/EventTarget.js.html#lineNumber9">synthetic-event/src/EventTarget.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/EventTarget.js.html#lineNumber6">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/EventTarget.js.html#lineNumber9">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -62,8 +63,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>A base class for objects that can receive events and may have listeners for
-them.</p>
+  <div class="description" data-ice="description"><p>An event target that can dispatch events to registered listeners.</p>
 </div>
   
 
@@ -115,12 +115,12 @@ them.</p>
 </table>
 </div>
 <div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <thead><tr><td data-ice="title" colspan="3">Protected Members</td></tr></thead>
   <tbody>
   
   <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">protected</span>
       
       
       
@@ -149,7 +149,7 @@ them.</p>
   </tr>
 <tr data-ice="target">
     <td>
-      <span class="access" data-ice="access">public</span>
+      <span class="access" data-ice="access">protected</span>
       
       
       
@@ -197,7 +197,7 @@ them.</p>
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/EventTarget.js~EventTarget.html#instance-method-addEventListener">addEventListener</a></span></span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, listener: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/EventTarget.js~EventTarget.html#instance-method-addEventListener">addEventListener</a></span></span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, listener: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventListener">EventListener</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>)</span>
         </p>
       </div>
       <div>
@@ -256,7 +256,7 @@ event listeners in the appropriate order.</p>
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/EventTarget.js~EventTarget.html#instance-method-removeEventListener">removeEventListener</a></span></span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, listener: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/EventTarget.js~EventTarget.html#instance-method-removeEventListener">removeEventListener</a></span></span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, listener: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventListener">EventListener</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>)</span>
         </p>
       </div>
       <div>
@@ -293,7 +293,7 @@ event listeners in the appropriate order.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber12">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber15">source</a></span></span>
     </span>
   </h3>
 
@@ -326,11 +326,11 @@ event listeners in the appropriate order.</p>
   
 </div>
 </div>
-<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
+<div data-ice="memberDetails"><h2 data-ice="title">Protected Members</h2>
 
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-member-listenerFunctions">
-    <span class="access" data-ice="access">public</span>
+    <span class="access" data-ice="access">protected</span>
     
     
     
@@ -340,7 +340,7 @@ event listeners in the appropriate order.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber20">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber24">source</a></span></span>
     </span>
   </h3>
 
@@ -374,7 +374,7 @@ event listeners in the appropriate order.</p>
 </div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-member-listenerObjects">
-    <span class="access" data-ice="access">public</span>
+    <span class="access" data-ice="access">protected</span>
     
     
     
@@ -384,7 +384,7 @@ event listeners in the appropriate order.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber28">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber33">source</a></span></span>
     </span>
   </h3>
 
@@ -427,11 +427,11 @@ event listeners in the appropriate order.</p>
     
     
     
-    <span class="code" data-ice="name">addEventListener</span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, listener: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
+    <span class="code" data-ice="name">addEventListener</span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, listener: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventListener">EventListener</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber39">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber44">source</a></span></span>
     </span>
   </h3>
 
@@ -460,9 +460,9 @@ event listeners in the appropriate order.</p>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">listener</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventListener">EventListener</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The object that receives a notification when an event of the specified type occurs.</p>
+      <td data-ice="description"><p>An event listener or callback.</p>
 </td>
     </tr>
 </tbody>
@@ -499,7 +499,7 @@ event listeners in the appropriate order.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber91">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber96">source</a></span></span>
     </span>
   </h3>
 
@@ -530,7 +530,8 @@ event listeners in the appropriate order.</p>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">target</td>
       <td data-ice="type" class="code"><span><a href="class/src/EventTarget.js~EventTarget.html">EventTarget</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: this</li></ul></td>
       <td data-ice="description"><p>An event target.</p>
 </td>
     </tr>
@@ -564,11 +565,11 @@ event listeners in the appropriate order.</p>
     
     
     
-    <span class="code" data-ice="name">removeEventListener</span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, listener: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
+    <span class="code" data-ice="name">removeEventListener</span><span class="code" data-ice="signature">(type: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, listener: <span><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventListener">EventListener</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber62">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/EventTarget.js.html#lineNumber68">source</a></span></span>
     </span>
   </h3>
 
@@ -597,9 +598,9 @@ event listeners in the appropriate order.</p>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">listener</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventListener">EventListener</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The event listener to remove from the event target.</p>
+      <td data-ice="description"><p>The event listener to remove.</p>
 </td>
     </tr>
 </tbody>
