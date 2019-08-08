@@ -4,6 +4,7 @@ import resolve from "rollup-plugin-node-resolve";
 
 const pkg = require("./package.json");
 const date = (new Date()).toDateString();
+const production = (process.env.NODE_ENV === "production");
 
 const banner = `/**
  * ${pkg.name} v${pkg.version} build ${date}
@@ -13,31 +14,41 @@ const banner = `/**
 
 const lib = {
 
-	input: pkg.module,
-	output: {
-		file: "build/" + pkg.name + ".js",
-		format: "umd",
-		name: pkg.name.replace(/-/g, "").toUpperCase(),
-		banner: banner
+	module: {
+		input: "src/index.js",
+		plugins: [resolve()],
+		output: {
+			file: pkg.module,
+			format: "esm",
+			banner: banner
+		}
 	},
 
-	plugins: [resolve()].concat(process.env.NODE_ENV === "production" ? [babel()] : [])
+	main: {
+		input: "src/index.js",
+		plugins: production ? [resolve(), babel()] : [resolve()],
+		output: {
+			file: pkg.main,
+			format: "umd",
+			name: pkg.name.replace(/-/g, "").toUpperCase(),
+			banner: banner
+		}
+	},
+
+	min: {
+		input: "src/index.js",
+		plugins: [resolve(), minify({
+			bannerNewLine: true,
+			comments: false
+		}), babel()],
+		output: {
+			file: pkg.main.replace(".js", ".min.js"),
+			format: "umd",
+			name: pkg.name.replace(/-/g, "").toUpperCase(),
+			banner: banner
+		}
+	}
 
 };
 
-export default [lib].concat((process.env.NODE_ENV === "production") ? [
-
-	Object.assign({}, lib, {
-
-		output: Object.assign({}, lib.output, {
-			file: "build/" + pkg.name + ".min.js"
-		}),
-
-		plugins: [resolve(), babel(), minify({
-			bannerNewLine: true,
-			comments: false
-		})]
-
-	})
-
-] : []);
+export default [lib.module, lib.main].concat(production ? [lib.min] : []);
