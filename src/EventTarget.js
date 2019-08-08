@@ -1,6 +1,5 @@
 /**
- * A base class for objects that can receive events and may have listeners for
- * them.
+ * An event target that can dispatch events to registered listeners.
  */
 
 export class EventTarget {
@@ -15,6 +14,7 @@ export class EventTarget {
 		 * A map of event listener functions.
 		 *
 		 * @type {Map}
+		 * @protected
 		 */
 
 		this.listenerFunctions = new Map();
@@ -23,6 +23,7 @@ export class EventTarget {
 		 * A map of event listener objects.
 		 *
 		 * @type {Map}
+		 * @protected
 		 */
 
 		this.listenerObjects = new Map();
@@ -33,12 +34,13 @@ export class EventTarget {
 	 * Registers an event handler of a specific event type on the event target.
 	 *
 	 * @param {String} type - The event type to listen for.
-	 * @param {Object} listener - The object that receives a notification when an event of the specified type occurs.
+	 * @param {EventListener|Function} listener - An event listener or callback.
 	 */
 
 	addEventListener(type, listener) {
 
-		const m = (typeof listener === "function") ? this.listenerFunctions : this.listenerObjects;
+		const m = (typeof listener === "function") ?
+			this.listenerFunctions : this.listenerObjects;
 
 		if(m.has(type)) {
 
@@ -56,18 +58,17 @@ export class EventTarget {
 	 * Removes an event handler of a specific event type from the event target.
 	 *
 	 * @param {String} type - The event type to remove.
-	 * @param {Object} listener - The event listener to remove from the event target.
+	 * @param {EventListener|Function} listener - The event listener to remove.
 	 */
 
 	removeEventListener(type, listener) {
 
-		const m = (typeof listener === "function") ? this.listenerFunctions : this.listenerObjects;
-
-		let listeners;
+		const m = (typeof listener === "function") ?
+			this.listenerFunctions : this.listenerObjects;
 
 		if(m.has(type)) {
 
-			listeners = m.get(type);
+			const listeners = m.get(type);
 			listeners.delete(listener);
 
 			if(listeners.size === 0) {
@@ -85,7 +86,7 @@ export class EventTarget {
 	 * event listeners in the appropriate order.
 	 *
 	 * @param {Event} event - The event to dispatch.
-	 * @param {EventTarget} [target] - An event target.
+	 * @param {EventTarget} [target=this] - An event target.
 	 */
 
 	dispatchEvent(event, target = this) {
@@ -93,8 +94,7 @@ export class EventTarget {
 		const listenerFunctions = target.listenerFunctions;
 		const listenerObjects = target.listenerObjects;
 
-		let listeners;
-		let listener;
+		let listeners, listener;
 
 		event.target = target;
 

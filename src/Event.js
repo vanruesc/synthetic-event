@@ -1,5 +1,5 @@
 /**
- * A basic event.
+ * An event.
  */
 
 export class Event {
