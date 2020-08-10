@@ -17,4 +17,4 @@
 *.RTF	 diff=astextplain
 
 # Linguist project language statistics
-build/* linguist-generated=true
+build/* linguist-generated
