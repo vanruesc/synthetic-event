@@ -1,5 +1,5 @@
 /**
- * synthetic-event v1.1.0 build Mon Aug 10 2020
+ * synthetic-event v1.1.1 build Mon Aug 10 2020
  * https://github.com/vanruesc/synthetic-event
  * Copyright 2020 Raoul van Rüschen
  * @license Zlib
