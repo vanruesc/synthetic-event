@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+    "rootDir": "./",
+    "outDir": "build",
+    "declarationDir": "build/types",
+		"moduleResolution": "node",
+		"module": "ESNext",
+    "target": "ES5",
+    "strict": true,
+    "noEmit": true,
+    "declaration": true,
+    "removeComments": true,
+    "strictNullChecks": false,
+		"downlevelIteration": true
+	},
+	"include": [
+		"src/**/*"
+	]
+}

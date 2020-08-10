@@ -1,54 +1,48 @@
-import babel from "rollup-plugin-babel";
-import minify from "rollup-plugin-babel-minify";
-import resolve from "rollup-plugin-node-resolve";
+import resolve from "@rollup/plugin-node-resolve";
+import typescript  from "@rollup/plugin-typescript";
+import { terser } from "rollup-plugin-terser";
 
 const pkg = require("./package.json");
 const date = (new Date()).toDateString();
-const production = (process.env.NODE_ENV === "production");
 
 const banner = `/**
  * ${pkg.name} v${pkg.version} build ${date}
  * ${pkg.homepage}
- * Copyright ${date.slice(-4)} ${pkg.author.name}, ${pkg.license}
+ * Copyright ${date.slice(-4)} ${pkg.author.name}
+ * @license ${pkg.license}
  */`;
 
+const production = (process.env.NODE_ENV === "production");
+
 const lib = {
-
 	module: {
-		input: "src/index.js",
-		plugins: [resolve()],
+		input: "src/index.ts",
+		plugins: [resolve(), typescript({ target: "ESNext" })],
 		output: {
-			file: pkg.module,
+			dir: "build",
+			entryFileNames: pkg.name + ".esm.js",
 			format: "esm",
-			banner: banner
+			banner
 		}
 	},
-
 	main: {
-		input: "src/index.js",
-		plugins: production ? [resolve(), babel()] : [resolve()],
-		output: {
-			file: pkg.main,
+		input: "src/index.ts",
+		plugins: [resolve(), typescript()],
+		output: [{
+			dir: "build",
+			entryFileNames: pkg.name + ".js",
 			format: "umd",
 			name: pkg.name.replace(/-/g, "").toUpperCase(),
-			banner: banner
-		}
-	},
-
-	min: {
-		input: "src/index.js",
-		plugins: [resolve(), minify({
-			bannerNewLine: true,
-			comments: false
-		}), babel()],
-		output: {
-			file: pkg.main.replace(".js", ".min.js"),
+			banner
+		}, {
+			dir: "build",
+			entryFileNames: pkg.name + ".min.js",
 			format: "umd",
 			name: pkg.name.replace(/-/g, "").toUpperCase(),
-			banner: banner
-		}
+			plugins: [terser()],
+			banner
+		}]
 	}
-
 };
 
-export default [lib.module, lib.main].concat(production ? [lib.min] : []);
+export default [lib.module, lib.main];

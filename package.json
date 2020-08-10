@@ -1,13 +1,17 @@
 {
 	"name": "synthetic-event",
 	"version": "1.0.0",
-	"description": "A collection of base classes for the creation of custom events and event targets.",
+	"description": "A collection of base classes for custom events and event targets.",
 	"homepage": "https://github.com/vanruesc/synthetic-event",
 	"main": "build/synthetic-event.js",
 	"module": "build/synthetic-event.esm.js",
+	"types": "build/types/index.d.ts",
+	"exports": {
+		".": "build/synthetic-event.esm.js"
+	},
+	"type": "module",
 	"sideEffects": false,
 	"license": "Zlib",
-
 	"keywords": [
 		"event",
 		"target",
@@ -15,68 +19,63 @@
 		"listener",
 		"dispatcher",
 		"synthetic",
-		"custom",
-		"browser",
-		"node",
-		"client",
-		"server"
+		"custom"
 	],
-
 	"author": {
 		"name": "Raoul van Rüschen",
 		"email": "vanruesc@outlook.de"
 	},
-
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/vanruesc/synthetic-event.git"
 	},
-
 	"bugs": {
 		"url": "https://github.com/vanruesc/synthetic-event/issues"
 	},
-
 	"files": [
-		"src",
 		"build"
 	],
-
 	"scripts": {
 		"ava": "ava",
-		"lint": "npm run lint:lib && npm run lint:test",
-		"lint:config": "eslint *.js",
-		"lint:lib": "eslint src",
-		"lint:test": "eslint test",
-		"build": "rollup -c",
-		"build:production": "cross-env NODE_ENV=production rollup -c",
-		"watch": "rollup -c --watch",
-		"doc": "esdoc",
-		"pretest": "npm run lint && npm run build:production",
-		"test": "npm run ava",
-		"prepack": "npm test"
+		"build": "cross-env NODE_ENV=production rollup -c",
+		"build-debug": "rollup -c",
+		"doc": "typedoc",
+		"dev": "concurrently -k -n rollup,eslint \"rollup -c -w\" \"esw -w --ext .ts src\"",
+		"lint": "esw --ext .ts src",
+		"prepack": "npm test && npm run doc",
+		"pretest": "npm run build",
+		"test": "ava"
 	},
-
 	"ava": {
 		"failFast": true,
-		"files": ["test/**/*.js"]
+		"files": [
+			"test/**/*.js"
+		]
 	},
-
 	"eslintConfig": {
-		"extends": "delta"
+		"root": true,
+		"extends": "aether/typescript",
+		"parserOptions": {
+			"project": [
+				"tsconfig.json"
+			]
+		}
 	},
-
 	"devDependencies": {
-		"@babel/core": "7.x.x",
-		"@babel/preset-env": "7.x.x",
-		"ava": "2.x.x",
-		"cross-env": "5.x.x",
-		"esdoc": "1.x.x",
-		"esdoc-standard-plugin": "1.x.x",
-		"eslint": "6.x.x",
-		"eslint-config-delta": "0.x.x",
-		"rollup": "1.x.x",
-		"rollup-plugin-babel": "4.x.x",
-		"rollup-plugin-babel-minify": "9.x.x",
-		"rollup-plugin-node-resolve": "5.x.x"
+		"@rollup/plugin-node-resolve": "8.x.x",
+		"@rollup/plugin-typescript": "5.x.x",
+		"@typescript-eslint/eslint-plugin": "3.x.x",
+		"@typescript-eslint/parser": "3.x.x",
+		"ava": "3.x.x",
+		"concurrently": "5.x.x",
+		"cross-env": "7.x.x",
+		"eslint": "7.x.x",
+		"eslint-config-aether": "1.x.x",
+		"eslint-watch": "7.x.x",
+		"rollup": "2.x.x",
+		"rollup-plugin-terser": "7.x.x",
+		"tslib": "2.x.x",
+		"typedoc": "0.x.x",
+		"typescript": "3.x.x"
 	}
 }
