@@ -1,5 +1,5 @@
 import test from "ava";
-import { Event } from "../build/synthetic-event.js";
+import { Event } from "../build/synthetic-event.esm.js";
 
 test("can be instantiated", t => {
 
