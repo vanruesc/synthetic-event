@@ -22,12 +22,12 @@ npm install synthetic-event
 
 ##### Basics
 
-```ts
+```js
 import { Event, EventTarget } from "synthetic-event";
 
 const eventTarget = new EventTarget();
 
-eventTarget.addEventListener("test", (event: Event) => {
+eventTarget.addEventListener("test", (event) => {
 
 	console.log("listener function", event.target);
 
@@ -35,7 +35,7 @@ eventTarget.addEventListener("test", (event: Event) => {
 
 eventTarget.addEventListener("test", {
 
-	handleEvent(event: Event): void {
+	handleEvent(event) {
 
 		console.log("listener object", event.target);
 
@@ -48,12 +48,10 @@ eventTarget.dispatchEvent(new Event("test"));
 
 ##### Custom Events
 
-```ts
+```js
 import { Event } from "synthetic-event";
 
 export class MyEvent extends Event {
-
-	myData: string;
 
 	constructor(type) {
 
@@ -68,12 +66,10 @@ export class MyEvent extends Event {
 
 ##### Custom EventTargets
 
-```ts
+```js
 import { Event, EventTarget } from "synthetic-event";
 
 export class MyEventTarget extends EventTarget {
-
-	private myEvent: Event;
 
 	constructor() {
 
