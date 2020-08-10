@@ -1,147 +1,121 @@
 /**
- * synthetic-event v1.0.0 build Thu Aug 08 2019
+ * synthetic-event v1.1.0 build Mon Aug 10 2020
  * https://github.com/vanruesc/synthetic-event
- * Copyright 2019 Raoul van Rüschen, Zlib
+ * Copyright 2020 Raoul van Rüschen
+ * @license Zlib
  */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global.SYNTHETICEVENT = {}));
-}(this, function (exports) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+    typeof define === 'function' && define.amd ? define(['exports'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.SYNTHETICEVENT = {}));
+}(this, (function (exports) { 'use strict';
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+    var Event = (function () {
+        function Event(type) {
+            this.type = type;
+            this.target = null;
+        }
+        return Event;
+    }());
 
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation.
 
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
 
-  var Event = function Event(type) {
-    _classCallCheck(this, Event);
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
 
-    this.type = type;
-    this.target = null;
-  };
-
-  var EventTarget = function () {
-    function EventTarget() {
-      _classCallCheck(this, EventTarget);
-
-      this.listenerFunctions = new Map();
-      this.listenerObjects = new Map();
+    function __values(o) {
+        var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+        if (m) return m.call(o);
+        if (o && typeof o.length === "number") return {
+            next: function () {
+                if (o && i >= o.length) o = void 0;
+                return { value: o && o[i++], done: !o };
+            }
+        };
+        throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
     }
 
-    _createClass(EventTarget, [{
-      key: "addEventListener",
-      value: function addEventListener(type, listener) {
-        var m = typeof listener === "function" ? this.listenerFunctions : this.listenerObjects;
-
-        if (m.has(type)) {
-          m.get(type).add(listener);
-        } else {
-          m.set(type, new Set([listener]));
+    var EventTarget = (function () {
+        function EventTarget() {
+            this.listenerFunctions = new Map();
+            this.listenerObjects = new Map();
         }
-      }
-    }, {
-      key: "removeEventListener",
-      value: function removeEventListener(type, listener) {
-        var m = typeof listener === "function" ? this.listenerFunctions : this.listenerObjects;
-
-        if (m.has(type)) {
-          var listeners = m.get(type);
-          listeners["delete"](listener);
-
-          if (listeners.size === 0) {
-            m["delete"](type);
-          }
-        }
-      }
-    }, {
-      key: "dispatchEvent",
-      value: function dispatchEvent(event) {
-        var target = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this;
-        var listenerFunctions = target.listenerFunctions;
-        var listenerObjects = target.listenerObjects;
-        var listeners, listener;
-        event.target = target;
-
-        if (listenerFunctions.has(event.type)) {
-          listeners = listenerFunctions.get(event.type);
-          var _iteratorNormalCompletion = true;
-          var _didIteratorError = false;
-          var _iteratorError = undefined;
-
-          try {
-            for (var _iterator = listeners[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-              listener = _step.value;
-              listener.call(target, event);
+        EventTarget.prototype.addEventListener = function (type, listener) {
+            var m = (typeof listener === "function") ?
+                this.listenerFunctions : this.listenerObjects;
+            if (m.has(type)) {
+                m.get(type).add(listener);
             }
-          } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-                _iterator["return"]();
-              }
-            } finally {
-              if (_didIteratorError) {
-                throw _iteratorError;
-              }
+            else {
+                m.set(type, new Set([listener]));
             }
-          }
-        }
-
-        if (listenerObjects.has(event.type)) {
-          listeners = listenerObjects.get(event.type);
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
-
-          try {
-            for (var _iterator2 = listeners[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-              listener = _step2.value;
-              listener.handleEvent(event);
+        };
+        EventTarget.prototype.removeEventListener = function (type, listener) {
+            var m = (typeof listener === "function") ?
+                this.listenerFunctions : this.listenerObjects;
+            if (m.has(type)) {
+                var listeners = m.get(type);
+                listeners.delete(listener);
+                if (listeners.size === 0) {
+                    m.delete(type);
+                }
             }
-          } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
-                _iterator2["return"]();
-              }
-            } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
-              }
+        };
+        EventTarget.prototype.dispatchEvent = function (event, target) {
+            var e_1, _a, e_2, _b;
+            if (target === void 0) { target = this; }
+            var listenerFunctions = target.listenerFunctions;
+            var listenerObjects = target.listenerObjects;
+            event.target = target;
+            if (listenerFunctions.has(event.type)) {
+                var listeners = listenerFunctions.get(event.type);
+                try {
+                    for (var listeners_1 = __values(listeners), listeners_1_1 = listeners_1.next(); !listeners_1_1.done; listeners_1_1 = listeners_1.next()) {
+                        var listener = listeners_1_1.value;
+                        listener.call(target, event);
+                    }
+                }
+                catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                finally {
+                    try {
+                        if (listeners_1_1 && !listeners_1_1.done && (_a = listeners_1.return)) _a.call(listeners_1);
+                    }
+                    finally { if (e_1) throw e_1.error; }
+                }
             }
-          }
-        }
-      }
-    }]);
+            if (listenerObjects.has(event.type)) {
+                var listeners = listenerObjects.get(event.type);
+                try {
+                    for (var listeners_2 = __values(listeners), listeners_2_1 = listeners_2.next(); !listeners_2_1.done; listeners_2_1 = listeners_2.next()) {
+                        var listener = listeners_2_1.value;
+                        listener.handleEvent(event);
+                    }
+                }
+                catch (e_2_1) { e_2 = { error: e_2_1 }; }
+                finally {
+                    try {
+                        if (listeners_2_1 && !listeners_2_1.done && (_b = listeners_2.return)) _b.call(listeners_2);
+                    }
+                    finally { if (e_2) throw e_2.error; }
+                }
+            }
+        };
+        return EventTarget;
+    }());
 
-    return EventTarget;
-  }();
+    exports.Event = Event;
+    exports.EventTarget = EventTarget;
 
-  exports.Event = Event;
-  exports.EventTarget = EventTarget;
+    Object.defineProperty(exports, '__esModule', { value: true });
 
-  Object.defineProperty(exports, '__esModule', { value: true });
-
-}));
+})));
