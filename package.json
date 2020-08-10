@@ -39,11 +39,12 @@
 		"ava": "ava",
 		"build": "cross-env NODE_ENV=production rollup -c",
 		"build-debug": "rollup -c",
+		"clean": "rimraf build docs",
 		"doc": "typedoc",
 		"dev": "concurrently -k -n rollup,eslint \"rollup -c -w\" \"esw -w --ext .ts src\"",
 		"lint": "eslint src",
 		"prepack": "npm test && npm run doc",
-		"pretest": "npm run lint && npm run build",
+		"pretest": "npm run lint && npm run clean && npm run build",
 		"test": "ava"
 	},
 	"ava": {
@@ -72,6 +73,7 @@
 		"eslint": "7.x.x",
 		"eslint-config-aether": "1.x.x",
 		"eslint-watch": "7.x.x",
+		"rimraf": "3.x.x",
 		"rollup": "2.x.x",
 		"rollup-plugin-terser": "7.x.x",
 		"tslib": "2.x.x",
