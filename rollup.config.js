@@ -17,7 +17,9 @@ const production = (process.env.NODE_ENV === "production");
 const lib = {
 	module: {
 		input: "src/index.ts",
-		plugins: [resolve(), typescript({ target: "ESNext" })],
+		plugins: [resolve(), typescript({
+			target: "ESNext"
+		})],
 		output: {
 			dir: "build",
 			entryFileNames: pkg.name + ".esm.js",
