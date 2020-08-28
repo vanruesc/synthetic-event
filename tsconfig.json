@@ -1,16 +1,16 @@
 {
 	"compilerOptions": {
-    "rootDir": "src",
-    "outDir": "build",
-    "declarationDir": "build/types",
+		"rootDir": "src",
+		"outDir": "build",
+		"declarationDir": "build/types",
 		"moduleResolution": "node",
 		"module": "ESNext",
-    "target": "ES5",
-    "strict": true,
-    "noEmit": true,
-    "declaration": true,
-    "removeComments": true,
-    "strictNullChecks": false,
+		"target": "ES5",
+		"noEmit": true,
+		"strict": true,
+		"declaration": true,
+		"removeComments": true,
+		"strictNullChecks": false,
 		"downlevelIteration": true
 	},
 	"include": [
