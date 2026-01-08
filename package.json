@@ -3,15 +3,18 @@
 	"version": "1.1.2",
 	"description": "A collection of base classes for custom events and event targets.",
 	"homepage": "https://github.com/vanruesc/synthetic-event",
-	"main": "build/synthetic-event.js",
-	"module": "build/synthetic-event.esm.js",
-	"types": "build/types/index.d.ts",
-	"exports": {
-		".": "./build/synthetic-event.esm.js"
-	},
+	"license": "Zlib",
 	"type": "module",
 	"sideEffects": false,
-	"license": "Zlib",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/types/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
 	"keywords": [
 		"event",
 		"target",
@@ -33,50 +36,48 @@
 		"url": "https://github.com/vanruesc/synthetic-event/issues"
 	},
 	"files": [
-		"build"
+		"dist"
 	],
-	"scripts": {
-		"ava": "ava",
-		"build": "cross-env NODE_ENV=production rollup -c",
-		"build-debug": "rollup -c",
-		"doc": "rimraf docs && typedoc",
-		"dev": "concurrently -k -n rollup,eslint \"rollup -c -w\" \"esw -w --ext .ts src\"",
-		"lint": "eslint src",
-		"prepack": "npm test && npm run doc",
-		"pretest": "npm run lint && rimraf build && npm run build",
-		"test": "ava"
-	},
 	"ava": {
 		"failFast": true,
 		"files": [
 			"test/**/*.js"
 		]
 	},
-	"eslintConfig": {
-		"root": true,
-		"extends": "aether/typescript",
-		"parserOptions": {
-			"project": [
-				"tsconfig.json"
-			]
-		}
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild"
+		]
+	},
+	"scripts": {
+		"ava": "ava",
+		"build": "run-p build:js:min build:dts",
+		"build:js": "node esbuild",
+		"build:js:min": "node esbuild -m",
+		"build:dts": "tsc -p tsconfig.d.json",
+		"clean": "del-cli dist public",
+		"doc": "typedoc --plugin typedoc-plugin-mdn-links",
+		"lint": "run-p lint:*",
+		"lint:js": "eslint --fix src test",
+		"lint:tsc": "tsc --noEmit",
+		"prepublishOnly": "npm test",
+		"test": "run-s lint clean build ava doc",
+		"prewatch": "run-s clean build:js build:dts"
 	},
 	"devDependencies": {
-		"@rollup/plugin-node-resolve": "9.x.x",
-		"@rollup/plugin-typescript": "5.x.x",
-		"@typescript-eslint/eslint-plugin": "3.x.x",
-		"@typescript-eslint/parser": "3.x.x",
-		"ava": "3.x.x",
-		"concurrently": "5.x.x",
-		"cross-env": "7.x.x",
-		"eslint": "7.x.x",
-		"eslint-config-aether": "1.x.x",
-		"eslint-watch": "7.x.x",
-		"rimraf": "3.x.x",
-		"rollup": "2.x.x",
-		"rollup-plugin-terser": "7.x.x",
+		"@types/node": "25.x.x",
+		"@typescript-eslint/eslint-plugin": "8.x.x",
+		"@typescript-eslint/parser": "8.x.x",
+		"ava": "6.x.x",
+		"cpy-cli": "6.x.x",
+		"del-cli": "7.x.x",
+		"esbuild": "0.27.x",
+		"eslint": "9.x.x",
+		"eslint-config-aether": "2.x.x",
+		"npm-run-all": "4.x.x",
 		"tslib": "2.x.x",
 		"typedoc": "0.x.x",
-		"typescript": "4.x.x"
+		"typedoc-plugin-mdn-links": "5.x.x",
+		"typescript": "5.9.x"
 	}
 }

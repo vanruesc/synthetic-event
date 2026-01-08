@@ -1,19 +1,28 @@
 {
-	"compilerOptions": {
-		"rootDir": "src",
-		"outDir": "build",
-		"declarationDir": "build/types",
-		"moduleResolution": "node",
-		"module": "ESNext",
-		"target": "ES5",
-		"noEmit": true,
-		"strict": true,
-		"declaration": true,
-		"removeComments": true,
-		"strictNullChecks": false,
-		"downlevelIteration": true
-	},
 	"include": [
-		"src/**/*"
-	]
+		"./*.js",
+		"./src",
+		"./test"
+	],
+	"compilerOptions": {
+		// File Layout
+		"baseUrl": ".",
+		"outDir": "./dist",
+		"paths": {
+			"synthetic-event": ["./src/index.js"]
+		},
+		// Environment Settings
+		"moduleResolution": "bundler",
+		"module": "es2022",
+		"target": "es2022",
+		// Style Options
+		"noImplicitReturns": true,
+		"noImplicitOverride": true,
+		// Other
+		"noUncheckedSideEffectImports": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"sourceMap": false,
+		"skipLibCheck": true
+	}
 }
