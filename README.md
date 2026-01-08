@@ -4,19 +4,17 @@
 [![NPM version](https://badge.fury.io/js/synthetic-event.svg)](http://badge.fury.io/js/synthetic-event)
 [![Dependencies](https://david-dm.org/vanruesc/synthetic-event.svg?branch=master)](https://david-dm.org/vanruesc/synthetic-event)
 
-This library provides a simplified implementation of the two interfaces [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event) and [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget). The included base classes can be used to create synthetic events and custom event targets in any environment.
+This library provides a simplified implementation of the [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) interface. The included classes can be used to create [synthetic events](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events) and custom event targets in any environment.
 
 If your focus lies on DOM events, please refer to the native [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) class. An alternative way to create custom event targets in a browser environment is to use a [DocumentFragment](https://developer.mozilla.org/en/docs/Web/API/Document/createDocumentFragment) as a dummy target.
 
 *[Documentation](https://vanruesc.github.io/synthetic-event)*
-
 
 ## Installation
 
 ```sh
 npm install synthetic-event
 ``` 
-
 
 ## Usage
 
@@ -43,46 +41,35 @@ eventTarget.addEventListener("test", {
 
 });
 
-eventTarget.dispatchEvent(new Event("test"));
+eventTarget.dispatchEvent({ type: "test" });
 ```
 
-##### Custom Events
-
-```js
-import { Event } from "synthetic-event";
-
-export class MyEvent extends Event {
-
-	constructor(type) {
-
-		super(type);
-
-		this.myData = null;
-
-	}
-
-}
-```
-
-##### Custom EventTargets
+##### Custom EventTarget
 
 ```js
 import { Event, EventTarget } from "synthetic-event";
 
-export class MyEventTarget extends EventTarget {
+export interface MyEventMap {
+
+	tick: Event<"tick">;
+
+}
+
+export class MyEventTarget extends EventTarget<MyEventMap> {
+
+	private readonly myEvent: Event<"tick">;
 
 	constructor() {
 
 		super();
 
-		this.myEvent = new Event("tick");
+		this.myEvent = { type: "tick" };
 		setInterval(() => this.dispatchEvent(this.myEvent), 1000);
 
 	}
 
 }
 ```
-
 
 ## Contributing
 
