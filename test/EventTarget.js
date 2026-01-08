@@ -1,11 +1,9 @@
 import test from "ava";
-import { Event, EventTarget } from "../build/synthetic-event.esm.js";
+import { EventTarget } from "synthetic-event";
 
 test("can be instantiated", t => {
 
-	const object = new EventTarget();
-
-	t.truthy(object);
+	t.truthy(new EventTarget());
 
 });
 
@@ -29,7 +27,7 @@ test("can dispatch an event", t => {
 
 	});
 
-	eventTarget.dispatchEvent(new Event("test"));
+	eventTarget.dispatchEvent({ type: "test" });
 
 });
 
@@ -48,6 +46,6 @@ test("can dispatch on another target", t => {
 
 	});
 
-	eventTarget1.dispatchEvent(new Event("test"), eventTarget2);
+	eventTarget1.dispatchEvent({ type: "test" }, eventTarget2);
 
 });
