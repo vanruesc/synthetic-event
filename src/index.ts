@@ -1,4 +1,4 @@
-export { Event } from "./Event";
-export { EventListener } from "./EventListener";
-export { EventListenerObject } from "./EventListenerObject";
-export { EventTarget } from "./EventTarget";
+export * from "./Event.js";
+export * from "./EventListener.js";
+export * from "./EventListenerObject.js";
+export * from "./EventTarget.js";

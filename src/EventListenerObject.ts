@@ -1,10 +1,10 @@
-import { Event } from "./Event";
+import { Event } from "./Event.js";
 
 /**
  * An event listener object.
  */
 
-export interface EventListenerObject {
+export interface EventListenerObject<TEventData, TEventType extends string, TTarget = unknown> {
 
 	/**
 	 * Handles a given event.
@@ -12,6 +12,6 @@ export interface EventListenerObject {
 	 * @param event - The event.
 	 */
 
-	handleEvent(event: Event): void;
+	handleEvent(event: TEventData & Event<TEventType, TTarget>): void;
 
 }

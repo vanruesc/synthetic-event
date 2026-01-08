@@ -1,24 +1,24 @@
-import { Event } from "./Event";
-import { EventListener } from "./EventListener";
-import { EventListenerObject } from "./EventListenerObject";
+import { Event } from "./Event.js";
+import { EventListener } from "./EventListener.js";
+import { EventListenerObject } from "./EventListenerObject.js";
 
 /**
  * An event target that can dispatch events to registered listeners.
  */
 
-export class EventTarget {
+export class EventTarget<TEventMap extends object = object> {
 
 	/**
 	 * A collection of event listener functions.
 	 */
 
-	protected listenerFunctions: Map<string, Set<EventListener>>;
+	private readonly listenerFunctions: Map<string, Set<EventListener<TEventMap[keyof TEventMap], string, this>>>;
 
 	/**
 	 * A collection of event listener objects.
 	 */
 
-	protected listenerObjects: Map<string, Set<EventListenerObject>>;
+	private readonly listenerObjects: Map<string, Set<EventListenerObject<TEventMap[keyof TEventMap], string, this>>>;
 
 	/**
 	 * Constructs a new event target.
@@ -26,8 +26,8 @@ export class EventTarget {
 
 	constructor() {
 
-		this.listenerFunctions = new Map<string, Set<EventListener>>();
-		this.listenerObjects = new Map<string, Set<EventListenerObject>>();
+		this.listenerFunctions = new Map();
+		this.listenerObjects = new Map();
 
 	}
 
@@ -38,18 +38,38 @@ export class EventTarget {
 	 * @param listener - An event listener or callback.
 	 */
 
-	addEventListener(type: string, listener: EventListener | EventListenerObject) {
+	addEventListener<T extends Extract<keyof TEventMap, string>>(
+		type: T,
+		listener: EventListener<TEventMap[T], T, this> | EventListenerObject<TEventMap[T], T, this>
+	): void {
 
-		const m: Map<string, Set<EventListener | EventListenerObject>> = (typeof listener === "function") ?
-			this.listenerFunctions : this.listenerObjects;
+		if(typeof listener === "function") {
 
-		if(m.has(type)) {
+			if(this.listenerFunctions.has(type)) {
 
-			m.get(type).add(listener);
+				const listeners = this.listenerFunctions.get(type) as Set<EventListener<TEventMap[T], T, this>>;
+				listeners.add(listener);
+
+			} else {
+
+				const listeners = new Set([listener]) as Set<EventListener<TEventMap[keyof TEventMap], string, this>>;
+				this.listenerFunctions.set(type, listeners);
+
+			}
 
 		} else {
 
-			m.set(type, new Set([listener]));
+			if(this.listenerObjects.has(type)) {
+
+				const listeners = this.listenerObjects.get(type) as Set<EventListenerObject<TEventMap[T], T, this>>;
+				listeners.add(listener);
+
+			} else {
+
+				const listeners = new Set([listener]) as Set<EventListenerObject<TEventMap[keyof TEventMap], string, this>>;
+				this.listenerObjects.set(type, listeners);
+
+			}
 
 		}
 
@@ -62,19 +82,76 @@ export class EventTarget {
 	 * @param listener - The event listener to remove.
 	 */
 
-	removeEventListener(type: string, listener: EventListener | EventListenerObject) {
+	hasEventListener<T extends Extract<keyof TEventMap, string>>(
+		type: T,
+		listener: EventListener<TEventMap[T], T, this> | EventListenerObject<TEventMap[T], T, this>
+	): boolean {
 
-		const m: Map<string, Set<EventListener | EventListenerObject>> = (typeof listener === "function") ?
-			this.listenerFunctions : this.listenerObjects;
+		if(typeof listener === "function") {
 
-		if(m.has(type)) {
+			if(!this.listenerFunctions.has(type)) {
 
-			const listeners = m.get(type);
-			listeners.delete(listener);
+				return false;
 
-			if(listeners.size === 0) {
+			}
 
-				m.delete(type);
+			const listeners = this.listenerFunctions.get(type) as Set<EventListener<TEventMap[T], T, this>>;
+			return listeners.has(listener);
+
+		}
+
+		if(!this.listenerObjects.has(type)) {
+
+			return false;
+
+		}
+
+		const listeners = this.listenerObjects.get(type) as Set<EventListenerObject<TEventMap[T], T, this>>;
+		return listeners.has(listener);
+
+	}
+
+	/**
+	 * Removes an event handler of a specific event type from the event target.
+	 *
+	 * @param type - The event type to remove.
+	 * @param listener - The event listener to remove.
+	 */
+
+	removeEventListener<T extends Extract<keyof TEventMap, string>>(
+		type: T,
+		listener: EventListener<TEventMap[T], T, this> | EventListenerObject<TEventMap[T], T, this>
+	): void {
+
+		if(typeof listener === "function") {
+
+			if(!this.listenerFunctions.has(type)) {
+
+				return;
+
+			}
+
+			const listeners = this.listenerFunctions.get(type) as Set<EventListener<TEventMap[T], T, this>>;
+
+			if(listeners.delete(listener) && listeners.size === 0) {
+
+				this.listenerFunctions.delete(type);
+
+			}
+
+		} else {
+
+			if(!this.listenerObjects.has(type)) {
+
+				return;
+
+			}
+
+			const listeners = this.listenerObjects.get(type) as Set<EventListenerObject<TEventMap[T], T, this>>;
+
+			if(listeners.delete(listener) && listeners.size === 0) {
+
+				this.listenerObjects.delete(type);
 
 			}
 
@@ -83,14 +160,19 @@ export class EventTarget {
 	}
 
 	/**
-	 * Dispatches an event at the specified event target, invoking the affected
-	 * event listeners in the appropriate order.
+	 * Dispatches an event at the specified event target, invoking the affected event listeners in the appropriate order.
 	 *
+	 * Event listeners can safely be added and removed while an event is being dispatched.
+	 *
+	 * @see https://262.ecma-international.org/#sec-map.prototype.foreach
 	 * @param event - The event to dispatch.
 	 * @param target - An event target.
 	 */
 
-	dispatchEvent(event: Event, target: EventTarget = this): void {
+	dispatchEvent<T extends Extract<keyof TEventMap, string>>(
+		event: Event<T> & TEventMap[T],
+		target: EventTarget<TEventMap> = this
+	): void {
 
 		const listenerFunctions = target.listenerFunctions;
 		const listenerObjects = target.listenerObjects;
@@ -99,7 +181,7 @@ export class EventTarget {
 
 		if(listenerFunctions.has(event.type)) {
 
-			const listeners = listenerFunctions.get(event.type);
+			const listeners = listenerFunctions.get(event.type) as Set<EventListener<Event<T> & TEventMap[T], T>>;
 
 			for(const listener of listeners) {
 
@@ -111,7 +193,7 @@ export class EventTarget {
 
 		if(listenerObjects.has(event.type)) {
 
-			const listeners = listenerObjects.get(event.type);
+			const listeners = listenerObjects.get(event.type) as Set<EventListenerObject<Event<T> & TEventMap[T], T>>;
 
 			for(const listener of listeners) {
 
