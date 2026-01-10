@@ -63,7 +63,18 @@ describe("EventTarget", () => {
 
 	});
 
-	it("can remove listener during dispatch", () => {
+	it("can add a listener during dispatch", () => {
+
+		const eventTarget = new EventTarget<EventMap>();
+		const listener1 = (event: Event) => assert.equal(event.target, eventTarget);
+		const listener2 = () => eventTarget.addEventListener("test", listener1);
+
+		eventTarget.addEventListener("test", listener2);
+		eventTarget.dispatchEvent({ type: "test" });
+
+	});
+
+	it("can remove a listener during dispatch", () => {
 
 		const eventTarget = new EventTarget<EventMap>();
 		const listener1 = () => eventTarget.removeEventListener("test", listener1);
