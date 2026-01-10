@@ -38,11 +38,8 @@
 	"files": [
 		"dist"
 	],
-	"ava": {
-		"failFast": true,
-		"files": [
-			"test/**/*.js"
-		]
+	"engines": {
+		"node": ">= 21"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
@@ -50,7 +47,6 @@
 		]
 	},
 	"scripts": {
-		"ava": "ava",
 		"build": "run-p build:js:min build:dts",
 		"build:js": "node esbuild",
 		"build:js:min": "node esbuild -m",
@@ -61,21 +57,19 @@
 		"lint:js": "eslint --fix src test",
 		"lint:tsc": "tsc --noEmit",
 		"prepublishOnly": "npm test",
-		"test": "run-s lint clean build ava doc",
-		"prewatch": "run-s clean build:js build:dts"
+		"pretest": "run-s clean lint build",
+		"test": "node --import tsx --test",
+		"posttest": "npm run doc"
 	},
 	"devDependencies": {
 		"@types/node": "25.x.x",
-		"@typescript-eslint/eslint-plugin": "8.x.x",
-		"@typescript-eslint/parser": "8.x.x",
-		"ava": "6.x.x",
-		"cpy-cli": "6.x.x",
 		"del-cli": "7.x.x",
 		"esbuild": "0.27.x",
 		"eslint": "9.x.x",
 		"eslint-config-aether": "2.x.x",
 		"npm-run-all": "4.x.x",
 		"tslib": "2.x.x",
+		"tsx": "4.x.x",
 		"typedoc": "0.x.x",
 		"typedoc-plugin-mdn-links": "5.x.x",
 		"typescript": "5.9.x"
