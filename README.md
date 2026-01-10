@@ -19,10 +19,16 @@ npm install synthetic-event
 
 ##### Basics
 
-```js
+```ts
 import { Event, EventTarget } from "synthetic-event";
 
-const eventTarget = new EventTarget();
+export interface MyEventMap {
+
+	test: Event<"test">;
+
+}
+
+const eventTarget = new EventTarget<MyEventMap>();
 
 eventTarget.addEventListener("test", (event) => {
 
