@@ -46,7 +46,7 @@ eventTarget.dispatchEvent({ type: "test" });
 
 ##### Custom EventTarget
 
-```js
+```ts
 import { Event, EventTarget } from "synthetic-event";
 
 export interface MyEventMap {
