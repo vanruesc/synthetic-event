@@ -39,6 +39,18 @@ describe("EventTarget", () => {
 
 	});
 
+	it("can clear event listeners", () => {
+
+		const eventTarget = new EventTarget<EventMap>();
+		const listener = () => {};
+
+		eventTarget.addEventListener("test", listener);
+		assert.equal(eventTarget.hasEventListener("test", listener), true);
+		eventTarget.clearEventListeners();
+		assert.equal(eventTarget.hasEventListener("test", listener), false);
+
+	});
+
 	it("can dispatch an event", () => {
 
 		const eventTarget = new EventTarget<EventMap>();
