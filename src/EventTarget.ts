@@ -57,19 +57,19 @@ export class EventTarget<TEventMap extends object = object> {
 
 			}
 
+			return;
+
+		}
+
+		if(this.listenerObjects.has(type)) {
+
+			const listeners = this.listenerObjects.get(type) as Set<EventListenerObject<TEventMap[T], T, this>>;
+			listeners.add(listener);
+
 		} else {
 
-			if(this.listenerObjects.has(type)) {
-
-				const listeners = this.listenerObjects.get(type) as Set<EventListenerObject<TEventMap[T], T, this>>;
-				listeners.add(listener);
-
-			} else {
-
-				const listeners = new Set([listener]) as Set<EventListenerObject<TEventMap[keyof TEventMap], string, this>>;
-				this.listenerObjects.set(type, listeners);
-
-			}
+			const listeners = new Set([listener]) as Set<EventListenerObject<TEventMap[keyof TEventMap], string, this>>;
+			this.listenerObjects.set(type, listeners);
 
 		}
 
@@ -139,21 +139,21 @@ export class EventTarget<TEventMap extends object = object> {
 
 			}
 
-		} else {
+			return;
 
-			if(!this.listenerObjects.has(type)) {
+		}
 
-				return;
+		if(!this.listenerObjects.has(type)) {
 
-			}
+			return;
 
-			const listeners = this.listenerObjects.get(type) as Set<EventListenerObject<TEventMap[T], T, this>>;
+		}
 
-			if(listeners.delete(listener) && listeners.size === 0) {
+		const listeners = this.listenerObjects.get(type) as Set<EventListenerObject<TEventMap[T], T, this>>;
 
-				this.listenerObjects.delete(type);
+		if(listeners.delete(listener) && listeners.size === 0) {
 
-			}
+			this.listenerObjects.delete(type);
 
 		}
 
@@ -164,7 +164,7 @@ export class EventTarget<TEventMap extends object = object> {
 	 *
 	 * Event listeners can safely be added and removed while an event is being dispatched.
 	 *
-	 * @see https://262.ecma-international.org/#sec-map.prototype.foreach
+	 * @see https://262.ecma-international.org/#sec-map.prototype.foreach for more information on the iteration behavior.
 	 * @param event - The event to dispatch.
 	 * @param target - An event target.
 	 */
