@@ -1,10 +1,9 @@
 # Synthetic Event
 
-[![Build status](https://travis-ci.org/vanruesc/synthetic-event.svg?branch=master)](https://travis-ci.org/vanruesc/synthetic-event)
-[![NPM version](https://badge.fury.io/js/synthetic-event.svg)](http://badge.fury.io/js/synthetic-event)
-[![Dependencies](https://david-dm.org/vanruesc/synthetic-event.svg?branch=master)](https://david-dm.org/vanruesc/synthetic-event)
+[![CI](https://github.com/vanruesc/synthetic-event/actions/workflows/ci.yml/badge.svg)](https://github.com/vanruesc/synthetic-event/actions/workflows/ci.yml)
+[![Version](https://badgen.net/npm/v/synthetic-event?color=green)](https://www.npmjs.com/package/synthetic-event)
 
-This library provides a simplified implementation of the [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) interface. The included classes can be used to create [synthetic events](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events) and custom event targets in any environment.
+This library provides a simplified implementation of the [EventTarget](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) interface. The included classes and interfaces can be used to create [synthetic events](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Events#creating_and_dispatching_events) and custom event targets in any environment.
 
 If your focus lies on DOM events, please refer to the native [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) class. An alternative way to create custom event targets in a browser environment is to use a [DocumentFragment](https://developer.mozilla.org/en/docs/Web/API/Document/createDocumentFragment) as a dummy target.
 
