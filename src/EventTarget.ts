@@ -12,13 +12,13 @@ export class EventTarget<TEventMap extends object = object> {
 	 * A collection of event listener functions.
 	 */
 
-	private readonly listenerFunctions: Map<string, Set<EventListener<TEventMap[keyof TEventMap], string, this>>>;
+	protected readonly listenerFunctions: Map<string, Set<EventListener<TEventMap[keyof TEventMap], string, this>>>;
 
 	/**
 	 * A collection of event listener objects.
 	 */
 
-	private readonly listenerObjects: Map<string, Set<EventListenerObject<TEventMap[keyof TEventMap], string, this>>>;
+	protected readonly listenerObjects: Map<string, Set<EventListenerObject<TEventMap[keyof TEventMap], string, this>>>;
 
 	/**
 	 * Constructs a new event target.
