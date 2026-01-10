@@ -205,4 +205,15 @@ export class EventTarget<TEventMap extends object = object> {
 
 	}
 
+	/**
+	 * Removes all listeners.
+	 */
+
+	clearEventListeners(): void {
+
+		this.listenerFunctions.clear();
+		this.listenerObjects.clear();
+
+	}
+
 }
