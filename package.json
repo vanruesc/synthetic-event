@@ -64,7 +64,7 @@
 	"devDependencies": {
 		"@types/node": "25.x.x",
 		"del-cli": "7.x.x",
-		"esbuild": "0.27.x",
+		"esbuild": "0.28.x",
 		"eslint": "9.x.x",
 		"eslint-config-aether": "2.x.x",
 		"npm-run-all": "4.x.x",
