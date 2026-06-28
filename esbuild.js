@@ -9,13 +9,11 @@ const banner = `/**
  * @license ${pkg.license}
  */`;
 
-const lib = {
+await esbuild.build({
 	entryPoints: ["./src/index.ts"],
 	outfile: "./dist/index.js",
 	banner: { js: banner },
 	logLevel: "info",
 	format: "esm",
 	bundle: true
-};
-
-await esbuild.build(lib);
+});
