@@ -41,37 +41,27 @@
 	"engines": {
 		"node": ">= 21"
 	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"esbuild"
-		]
-	},
 	"scripts": {
-		"build": "run-p build:js:min build:dts",
-		"build:js": "node esbuild",
-		"build:js:min": "node esbuild -m",
-		"build:dts": "tsc -p tsconfig.d.json",
-		"clean": "del-cli dist public",
+		"build": "node esbuild",
+		"clean": "del-cli dist test/generated",
 		"doc": "typedoc --plugin typedoc-plugin-mdn-links",
-		"lint": "run-p lint:*",
-		"lint:js": "eslint --fix src test",
-		"lint:tsc": "tsc --noEmit",
-		"prepublishOnly": "npm test",
-		"pretest": "run-s clean lint build",
+		"dts": "tsc -p tsconfig.d.json",
+		"lint": "eslint --fix src test",
+		"pretest": "run-s clean dts lint build",
 		"test": "node --import tsx --test",
-		"posttest": "npm run doc"
+		"posttest": "run-s doc",
+		"prepublishOnly": "run-s test"
 	},
 	"devDependencies": {
-		"@types/node": "25.x.x",
+		"@types/node": "26.x.x",
 		"del-cli": "7.x.x",
-		"esbuild": "0.27.x",
-		"eslint": "9.x.x",
-		"eslint-config-aether": "2.x.x",
+		"esbuild": "0.28.x",
+		"eslint": "10.x.x",
+		"eslint-config-aether": "3.x.x",
 		"npm-run-all": "4.x.x",
-		"tslib": "2.x.x",
 		"tsx": "4.x.x",
 		"typedoc": "0.x.x",
 		"typedoc-plugin-mdn-links": "5.x.x",
-		"typescript": "5.9.x"
+		"typescript": "6.0.x"
 	}
 }
